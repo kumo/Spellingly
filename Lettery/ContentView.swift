@@ -7,194 +7,55 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LetterView: View {
+    var key: String
+    
+    func MatchCharacter() -> String {
+        if key.uppercased() == "T" {
+            return "Tama"
+        } else if key.uppercased() == "A" {
+            return "Apple"
+        } else if key.uppercased() == "M" {
+            return "Monkey"
+        } else if key.uppercased() == " " {
+            return "Space"
+        }
+        
+        return "Boom!"
+    }
+    
     var body: some View {
         VStack {
-        HStack {
-            VStack {
-                Text("F")
-                    .font(.largeTitle)
-                Text("Foxtrot")
-                    .font(.caption)
-            }
-            VStack {
-                Text("O")
-                    .font(.largeTitle)
-                Text("Oscar")
-                    .font(.caption)
-            }
-            VStack {
-                Text("X")
-                    .font(.largeTitle)
-                Text("X-Ray")
-                    .font(.caption)
-            }
-            VStack {
-                Text("T")
-                    .font(.largeTitle)
-                Text("Tango")
-                    .font(.caption)
-            }
-            VStack {
-                Text("R")
-                    .font(.largeTitle)
-                Text("Romeo")
-                    .font(.caption)
-            }
-            VStack {
-                Text("O")
-                    .font(.largeTitle)
-                Text("Oscar")
-                    .font(.caption)
-            }
-            VStack {
-                Text("T")
-                    .font(.largeTitle)
-                Text("Tango")
-                    .font(.caption)
-            }
+            Text(key)
+                .font(.largeTitle)
+            
+            Text(MatchCharacter())
+                .font(.caption)
         }
-        .padding(10.0)
-            Spacer()
-            HStack {
-                VStack {
-                    Text("Foxtrot")
-                        .font(.caption)
-                    Text("F")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Oscar")
-                        .font(.caption)
-                    Text("O")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("X-Ray")
-                        .font(.caption)
-                    Text("X")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Tango")
-                        .font(.caption)
-                    Text("T")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Romeo")
-                        .font(.caption)
-                    Text("R")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Oscar")
-                        .font(.caption)
-                    Text("O")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Tango")
-                        .font(.caption)
-                    Text("T")
-                        .font(.largeTitle)
-                }
+    }
+}
 
-            }
-            .padding(10.0)
+struct ContentView: View {
+    @State private var text: String = ""
+    
+    var body: some View {
+        VStack {
+            Spacer()
             
             HStack {
-                VStack {
-                    Text("At")
-                        .font(.caption)
-                    Text("@")
-                        .font(.largeTitle)
-                }
-
-            }
-            .padding(10.0)
-
-            HStack {
-                VStack {
-                    Text("Foxtrot")
-                        .font(.caption)
-                    Text("F")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Oscar")
-                        .font(.caption)
-                    Text("O")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("X-Ray")
-                        .font(.caption)
-                    Text("X")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Tango")
-                        .font(.caption)
-                    Text("T")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Romeo")
-                        .font(.caption)
-                    Text("R")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Oscar")
-                        .font(.caption)
-                    Text("O")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Tango")
-                        .font(.caption)
-                    Text("T")
-                        .font(.largeTitle)
-                }
-
-            }
-            .padding(10.0)
-
-            HStack {
-                VStack {
-                    Text("Dot")
-                        .font(.caption)
-                    Text(".")
-                        .font(.largeTitle)
-                }
-
-            }
-            .padding(10.0)
-
-
-            HStack {
-                VStack {
-                    Text("Charlie")
-                        .font(.caption)
-                    Text("C")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Oscar")
-                        .font(.caption)
-                    Text("O")
-                        .font(.largeTitle)
-                }
-                VStack {
-                    Text("Mike")
-                        .font(.caption)
-                    Text("M")
-                        .font(.largeTitle)
+                if text.isEmpty {
+                    Text("Type something")
+                } else {
+                    ForEach(Array(text.enumerated()), id: \.offset) { character in
+                        
+                        LetterView(key: String(character.element))
+                    }
                 }
             }
-            .padding(10.0)
-
+            
+            Spacer()
+            
+            TextField("Name:", text: $text)
         }
         .padding(10.0)
     }
