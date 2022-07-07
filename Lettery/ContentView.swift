@@ -21,7 +21,7 @@ struct LetterView: View {
             return "Space"
         }
         
-        return "Boom!"
+        return ""
     }
     
     var body: some View {
