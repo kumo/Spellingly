@@ -11,14 +11,16 @@ struct LetterView: View {
     var key: String
     
     func MatchCharacter() -> String {
-        if key.uppercased() == "T" {
-            return "Tama"
-        } else if key.uppercased() == "A" {
-            return "Apple"
-        } else if key.uppercased() == "M" {
-            return "Monkey"
-        } else if key.uppercased() == " " {
-            return "Space"
+        if key.uppercased() == "F" {
+            return "Foxtrot"
+        } else if key.uppercased() == "O" {
+            return "Oscar"
+        } else if key.uppercased() == "X" {
+            return "X-Ray"
+        } else if key.uppercased() == "T" {
+            return "Tango"
+        } else if key.uppercased() == "R" {
+            return "Romeo"
         }
         
         return ""
@@ -26,11 +28,11 @@ struct LetterView: View {
     
     var body: some View {
         VStack {
-            Text(key)
-                .font(.largeTitle)
-            
             Text(MatchCharacter())
                 .font(.caption)
+            
+            Text(key)
+                .font(.largeTitle)
         }
     }
 }
