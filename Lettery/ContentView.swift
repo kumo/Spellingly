@@ -37,15 +37,17 @@ struct LetterView: View {
 
 struct ContentView: View {
     @State private var text: String = ""
+    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
     
     var body: some View {
         VStack {
             Spacer()
             
-            HStack {
-                if text.isEmpty {
-                    Text("Type something")
-                } else {
+            if text.isEmpty {
+                Text("Type something")
+            } else {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
                     ForEach(Array(text.enumerated()), id: \.offset) { character in
                         
                         LetterView(key: String(character.element))
