@@ -39,6 +39,7 @@ struct LetterView: View {
 
 struct ContentView: View {
     @State private var text: String = ""
+    @FocusState private var isFocused: Bool
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     
@@ -60,6 +61,11 @@ struct ContentView: View {
             Spacer()
             
             TextField("Name:", text: $text)
+                .focused($isFocused, equals: true)
+                          .onAppear {
+                              DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
+                            
+                        }
         }
         .padding(10.0)
     }
