@@ -30,6 +30,7 @@ struct LetterView: View {
         VStack {
             Text(MatchCharacter())
                 .font(.caption)
+                .foregroundColor(Color("AccentColor"))
             
             Text(key)
                 .font(.largeTitle)
