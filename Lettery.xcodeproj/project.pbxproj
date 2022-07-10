@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C04287AE30200AA6E8F /* LetterView.swift */; };
 		BFD2BB4D28763D77005FCAF2 /* LetteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */; };
 		BFD2BB4F28763D77005FCAF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4E28763D77005FCAF2 /* ContentView.swift */; };
 		BFD2BB5128763D7A005FCAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF805C04287AE30200AA6E8F /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		BFD2BB4928763D77005FCAF2 /* Lettery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lettery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetteryApp.swift; sourceTree = "<group>"; };
 		BFD2BB4E28763D77005FCAF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */,
 				BFD2BB4E28763D77005FCAF2 /* ContentView.swift */,
+				BF805C04287AE30200AA6E8F /* LetterView.swift */,
 				BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */,
 				BFD2BB5228763D7A005FCAF2 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD2BB4F28763D77005FCAF2 /* ContentView.swift in Sources */,
+				BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */,
 				BFD2BB4D28763D77005FCAF2 /* LetteryApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

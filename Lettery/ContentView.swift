@@ -26,22 +26,6 @@ extension LetteryData {
     }
 }
 
-struct LetterView: View {
-    var letter: String
-    var spelling: String
-    
-    var body: some View {
-        VStack {
-            Text(spelling)
-                .font(.caption)
-                .foregroundColor(Color("AccentColor"))
-            
-            Text(letter)
-                .font(.largeTitle)
-        }
-    }
-}
-
 struct ContentView: View {
     @StateObject var data = LetteryData()
     @FocusState private var isFocused: Bool
