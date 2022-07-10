@@ -18,11 +18,11 @@ class LetteryData: ObservableObject {
     @Published var cleanedInput = "".enumerated()
 }
 
-extension LetteryData {
-    func spellingForLetter(_ letter: String) -> String {
+class Converter {
+    static func spellingForLetter(_ letter: String) -> String {
         let someDict:[String:String] = ["A":"Alpha", "B":"Bravo", "C":"Charlie", "D":"Delta", "E":"Echo", "F":"Foxtrot", "G":"Golf", "H":"Hotel", "I":"India", "J":"Juliett", "K":"Kilo", "L":"Lima", "M":"Mike", "N":"November", "O":"Oscar", "P":"Papa", "Q":"Quebec", "R":"Romeo", "S":"Sierra", "T":"Tango", "U":"Uniform", "V":"Victor", "W":"Whiskey", "X":"X-ray", "Y":"Yankee", "Z":"Zulu"]
         
-        return someDict[letter] ?? ""
+        return someDict[letter.uppercased()] ?? ""
     }
 }
 
@@ -39,16 +39,7 @@ struct ContentView: View {
             if data.input.isEmpty {
                 Text("Type something")
             } else {
-                LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
-                    ForEach(Array(data.cleanedInput), id: \.offset) { character in
-                        
-                        if let letter = String(character.element) {
-                            if let spelling = data.spellingForLetter(letter) {
-                                LetterView(letter: letter, spelling: spelling)
-                            }
-                        }
-                    }
-                }
+                LetterGrid(letters: data.cleanedInput, converter: Converter())
             }
             
             Spacer()
