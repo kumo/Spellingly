@@ -10,7 +10,8 @@ import SwiftUI
 struct LetterGrid: View {
     var letters: EnumeratedSequence<String> = "".enumerated()
     var converter: Converter
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    let columns: [GridItem] =
+        Array(repeating: .init(.flexible()), count: 5)
     
     var body: some View {
         ScrollView {
@@ -28,6 +29,6 @@ struct LetterGrid: View {
 struct LetterGrid_Previews: PreviewProvider {
     
     static var previews: some View {
-        LetterGrid(letters: "Foxtrot is GoGo".enumerated(), converter: Converter())
+        LetterGrid(letters: "Foxtrot is in November".enumerated(), converter: Converter())
     }
 }
