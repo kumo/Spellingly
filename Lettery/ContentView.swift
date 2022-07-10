@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+class LetteryData: ObservableObject {
+    @Published var input = "" {
+        didSet {
+            // TODO: add support for an uppercase setting
+            cleanedInput = input.uppercased().enumerated()
+            // TODO: add support for word wrapping and setting
+        }
+    }
+    @Published var cleanedInput = "".enumerated()
+}
+
 struct LetterView: View {
     var key: String
     
@@ -39,7 +50,7 @@ struct LetterView: View {
 }
 
 struct ContentView: View {
-    @State private var text: String = ""
+    @StateObject var data = LetteryData()
     @FocusState private var isFocused: Bool
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -48,11 +59,11 @@ struct ContentView: View {
         VStack {
             Spacer()
             
-            if text.isEmpty {
+            if data.input.isEmpty {
                 Text("Type something")
             } else {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
-                    ForEach(Array(text.enumerated()), id: \.offset) { character in
+                    ForEach(Array(data.cleanedInput), id: \.offset) { character in
                         
                         LetterView(key: String(character.element))
                     }
@@ -61,7 +72,7 @@ struct ContentView: View {
             
             Spacer()
             
-            TextField("Name:", text: $text)
+            TextField("Name:", text: $data.input)
                 .focused($isFocused, equals: true)
                           .onAppear {
                               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
