@@ -29,8 +29,7 @@ class Converter {
 struct ContentView: View {
     @StateObject var data = LetteryData()
     @FocusState private var isFocused: Bool
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-    
+    @State var showSettingsView = false
     
     var body: some View {
         NavigationView {
@@ -47,23 +46,34 @@ struct ContentView: View {
                     .onTapGesture {
                         print("Navigation title pressed...")
                     }
-                    .navigationBarItems(leading:
-                                Button(action: {
-                                    print("Settings button pressed...")
-                                }) {
-                                    Image(systemName: "gearshape").imageScale(.large)
-                                },
-                            trailing:
-                                Button(action: {
-                                    print("Extra button pressed...")
-                                }) {
-                                    Image(systemName: "ellipsis.circle").imageScale(.large)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Menu(content: {
+                                Button(action: {}) {
+                                    Label("Share", systemImage: "square.and.arrow.up")
                                 }
-                        )
+                                Button(action: {}) {
+                                    Label("Save", systemImage: "bookmark")
+                                }
+                                
+                            }, label: {Image(systemName: "ellipsis.circle").imageScale(.large)})
+                        }
+                    }
+                    .navigationBarItems(leading:
+                                            Button(action: {
+                        print("Settings button pressed...")
+                        self.showSettingsView.toggle()
+                    }) {
+                        Image(systemName: "gearshape").imageScale(.large)
+                    }
+                        .sheet(isPresented: $showSettingsView) {
+                            SettingsView()
+                        }
+                    )
             }
             .padding(10.0)
         }
-
+        
     }
 }
 
