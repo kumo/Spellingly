@@ -83,6 +83,8 @@
 			dependencies = (
 			);
 			name = Lettery;
+			packageProductDependencies = (
+			);
 			productName = Lettery;
 			productReference = BFD2BB4928763D77005FCAF2 /* Lettery.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +113,8 @@
 				Base,
 			);
 			mainGroup = BFD2BB4028763D77005FCAF2;
+			packageReferences = (
+			);
 			productRefGroup = BFD2BB4A28763D77005FCAF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

@@ -18,32 +18,35 @@ class LetteryData: ObservableObject {
     @Published var cleanedInput = "".enumerated()
 }
 
-struct LetterView: View {
-    var key: String
-    
-    func MatchCharacter() -> String {
-        if key.uppercased() == "F" {
+extension LetteryData {
+    func spellingForLetter(_ letter: String) -> String {
+        if letter.uppercased() == "F" {
             return "Foxtrot"
-        } else if key.uppercased() == "O" {
+        } else if letter.uppercased() == "O" {
             return "Oscar"
-        } else if key.uppercased() == "X" {
+        } else if letter.uppercased() == "X" {
             return "X-Ray"
-        } else if key.uppercased() == "T" {
+        } else if letter.uppercased() == "T" {
             return "Tango"
-        } else if key.uppercased() == "R" {
+        } else if letter.uppercased() == "R" {
             return "Romeo"
         }
         
         return ""
     }
+}
+
+struct LetterView: View {
+    var letter: String
+    var spelling: String
     
     var body: some View {
         VStack {
-            Text(MatchCharacter())
+            Text(spelling)
                 .font(.caption)
                 .foregroundColor(Color("AccentColor"))
             
-            Text(key)
+            Text(letter)
                 .font(.largeTitle)
         }
     }
@@ -65,7 +68,11 @@ struct ContentView: View {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
                     ForEach(Array(data.cleanedInput), id: \.offset) { character in
                         
-                        LetterView(key: String(character.element))
+                        if let letter = String(character.element) {
+                            if let spelling = data.spellingForLetter(letter) {
+                                LetterView(letter: letter, spelling: spelling)
+                            }
+                        }
                     }
                 }
             }
