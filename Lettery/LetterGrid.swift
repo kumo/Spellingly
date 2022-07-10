@@ -13,10 +13,12 @@ struct LetterGrid: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
-            ForEach(Array(letters), id: \.offset) { character in
-                if let letter = String(character.element) {
-                    LetterView(letter: letter, spelling: Converter.spellingForLetter(letter))
+        ScrollView {
+            LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
+                ForEach(Array(letters), id: \.offset) { character in
+                    if let letter = String(character.element) {
+                        LetterView(letter: letter, spelling: Converter.spellingForLetter(letter))
+                    }
                 }
             }
         }
