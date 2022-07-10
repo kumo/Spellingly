@@ -10,7 +10,8 @@ import SwiftUI
 struct LetterView: View {
     var letter: String
     var spelling: String
-    
+    @AppStorage("showCapitalsKey") var showCapitals: Bool = false
+
     var body: some View {
         VStack {
             Text(spelling)
@@ -19,7 +20,7 @@ struct LetterView: View {
                 .allowsTightening(true)
                 .lineLimit(1)
             
-            Text(letter)
+            Text(showCapitals ? letter.uppercased() : letter)
                 .font(.largeTitle)
         }
     }

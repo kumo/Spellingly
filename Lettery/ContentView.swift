@@ -11,11 +11,11 @@ class LetteryData: ObservableObject {
     @Published var input = "" {
         didSet {
             // TODO: add support for an uppercase setting
-            cleanedInput = input.uppercased().enumerated()
+            cleanedInput = input.enumerated()
             // TODO: add support for word wrapping and setting
         }
     }
-    @Published var cleanedInput = "TYPE YOUR TEXT.".enumerated()
+    @Published var cleanedInput = "Type your text.".enumerated()
 }
 
 class Converter {

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var useCapitals = true
+    @AppStorage("showCapitalsKey") var showCapitals: Bool = false
+
     var body: some View {
         Form {
             Section(header: Text("Preview")) {
@@ -17,7 +18,9 @@ struct SettingsView: View {
                     converter: Converter(),
                     columns: Array(repeating: GridItem.init(.flexible()), count: 4))
             }
-            Toggle("Show capital letters", isOn: $useCapitals)
+            Section(header: Text("Options")) {
+                Toggle("Show capital letters", isOn: $showCapitals)
+            }
         }
     }
 }
