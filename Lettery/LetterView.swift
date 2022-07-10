@@ -14,7 +14,7 @@ struct LetterView: View {
     var body: some View {
         VStack {
             Text(spelling)
-                .font(.caption)
+                .font(.footnote)
                 .foregroundColor(Color("AccentColor"))
                 .allowsTightening(true)
                 .lineLimit(1)
