@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("showCapitalsKey") var showCapitals: Bool = false
+    @AppStorage("showCapitalSpellingsKey") var showCapitalSpellings: Bool = false
+    @AppStorage("showSpellingOnTopKey") var showSpellingOnTop: Bool = true
     @AppStorage("removeLeadingSpacesKey") var removeLeadingSpace: Bool = false
     @AppStorage("removeTrailingLettersKey") var startOnNewLine: Bool = false
 
@@ -23,6 +25,8 @@ struct SettingsView: View {
 
             Section(header: Text("Options")) {
                 Toggle("Show capital letters", isOn: $showCapitals)
+                Toggle("Show capital spellings", isOn: $showCapitalSpellings)
+                Toggle("Show spelling on top", isOn: $showSpellingOnTop)
                 Toggle("Remove leading spaces", isOn: $removeLeadingSpace)
                     .disabled(true)
                 Toggle("Start words on a new line", isOn: $startOnNewLine)

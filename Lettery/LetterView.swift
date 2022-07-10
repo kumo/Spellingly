@@ -11,17 +11,26 @@ struct LetterView: View {
     var letter: String
     var spelling: String
     @AppStorage("showCapitalsKey") var showCapitals: Bool = false
+    @AppStorage("showCapitalSpellingsKey") var showCapitalSpellings: Bool = false
+    @AppStorage("showSpellingOnTopKey") var showSpellingOnTop: Bool = true
 
     var body: some View {
         VStack {
-            Text(spelling)
-                .font(.footnote)
+            if !showSpellingOnTop {
+                Text(showCapitals ? letter.uppercased() : letter)
+                    .font(.largeTitle)
+            }
+            
+            Text(showCapitalSpellings ? spelling.uppercased() : spelling)
+                .font(.caption)
                 .foregroundColor(Color("AccentColor"))
                 .allowsTightening(true)
                 .lineLimit(1)
-            
-            Text(showCapitals ? letter.uppercased() : letter)
-                .font(.largeTitle)
+
+            if showSpellingOnTop {
+                Text(showCapitals ? letter.uppercased() : letter)
+                    .font(.largeTitle)
+            }
         }
     }
 }
