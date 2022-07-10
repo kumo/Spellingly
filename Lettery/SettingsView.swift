@@ -11,8 +11,11 @@ struct SettingsView: View {
     @State var useCapitals = true
     var body: some View {
         Form {
-            Section(header: Text("PREVIEW")) {
-                LetterView(letter: "Y", spelling: "YES")
+            Section(header: Text("Preview")) {
+                LetterGrid(
+                    letters: "Here and now".enumerated(),
+                    converter: Converter(),
+                    columns: Array(repeating: GridItem.init(.flexible()), count: 4))
             }
             Toggle("Show capital letters", isOn: $useCapitals)
         }

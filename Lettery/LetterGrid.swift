@@ -10,7 +10,7 @@ import SwiftUI
 struct LetterGrid: View {
     var letters: EnumeratedSequence<String> = "".enumerated()
     var converter: Converter
-    let columns: [GridItem] =
+    var columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 5)
     
     var body: some View {
