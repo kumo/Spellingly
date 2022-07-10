@@ -33,25 +33,45 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            if data.input.isEmpty {
-                Text("Type something")
-            } else {
-                LetterGrid(letters: data.cleanedInput, converter: Converter())
+        NavigationView {
+            VStack {
+                Spacer()
+                
+                if data.input.isEmpty {
+                    Text("Type something")
+                } else {
+                    LetterGrid(letters: data.cleanedInput, converter: Converter())
+                }
+
+                Spacer()
+                
+                TextField("Name:", text: $data.input)
+                    .focused($isFocused, equals: true)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
+                        
+                    }
+                    .navigationBarTitle("NATO",  displayMode: .inline)
+                    .onTapGesture {
+                        print("Navigation title pressed...")
+                    }
+                    .navigationBarItems(leading:
+                                Button(action: {
+                                    print("Settings button pressed...")
+                                }) {
+                                    Image(systemName: "gearshape").imageScale(.large)
+                                },
+                            trailing:
+                                Button(action: {
+                                    print("Extra button pressed...")
+                                }) {
+                                    Image(systemName: "ellipsis.circle").imageScale(.large)
+                                }
+                        )
             }
-            
-            Spacer()
-            
-            TextField("Name:", text: $data.input)
-                .focused($isFocused, equals: true)
-                          .onAppear {
-                              DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
-                            
-                        }
+            .padding(10.0)
         }
-        .padding(10.0)
+
     }
 }
 
