@@ -15,7 +15,7 @@ class LetteryData: ObservableObject {
             // TODO: add support for word wrapping and setting
         }
     }
-    @Published var cleanedInput = "".enumerated()
+    @Published var cleanedInput = "TYPE YOUR TEXT.".enumerated()
 }
 
 class Converter {
@@ -35,17 +35,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
+                LetterGrid(letters: data.cleanedInput, converter: Converter())
                 
-                if data.input.isEmpty {
-                    Text("Type something")
-                } else {
-                    LetterGrid(letters: data.cleanedInput, converter: Converter())
-                }
-
-                Spacer()
-                
-                TextField("Name:", text: $data.input)
+                TextField("Type something", text: $data.input)
                     .focused($isFocused, equals: true)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
