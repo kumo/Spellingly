@@ -31,6 +31,9 @@ struct ContentView: View {
     @FocusState private var isFocused: Bool
     @State var showSettingsView = false
     
+    // MARK: - Properties
+    @ObservedObject var dataProvider = DataProvider.shared
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -56,7 +59,11 @@ struct ContentView: View {
                                 Button(action: {}) {
                                     Label("Share", systemImage: "square.and.arrow.up")
                                 }
-                                Button(action: {}) {
+                                Button(action: {
+                                    let bookmark = Bookmark(text: data.input, converter: "NATO")
+                                                
+                                    DataProvider.shared.create(bookmark: bookmark)
+                                }) {
                                     Label("Save", systemImage: "bookmark")
                                 }
                                 
