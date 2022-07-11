@@ -42,11 +42,15 @@ struct ContentView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
                         
                     }
-                    .navigationBarTitle("NATO",  displayMode: .inline)
-                    .onTapGesture {
-                        print("Navigation title pressed...")
-                    }
+                    .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Text("NATO").font(.headline)
+                                .onTapGesture {
+                                    print("Navigation title pressed...")
+                                }
+                        }
+                        
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Menu(content: {
                                 Button(action: {}) {
