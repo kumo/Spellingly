@@ -17,10 +17,15 @@ struct BookmarksView: View {
             ForEach(dataProvider.allBookmarks) { bookmark in
                 Text(bookmark.text)
             }
+            .onDelete(perform: dataProvider.delete)
+            .onMove(perform: dataProvider.move)
         }
         .navigationBarTitleDisplayMode(.automatic)
         .navigationTitle(Text("Bookmarks"))
         .listStyle(InsetListStyle())
+        .navigationBarItems(
+            trailing: EditButton()
+        )
     }
 }
 
