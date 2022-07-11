@@ -59,12 +59,16 @@ struct ContentView: View {
                                 Button(action: {}) {
                                     Label("Share", systemImage: "square.and.arrow.up")
                                 }
-                                Button(action: {
-                                    let bookmark = Bookmark(text: data.input, converter: "NATO")
-                                                
-                                    DataProvider.shared.create(bookmark: bookmark)
-                                }) {
-                                    Label("Save", systemImage: "bookmark")
+                                if dataProvider.allBookmarks.firstIndex { $0.text == data.input} != nil {
+                                    Label("Saved", systemImage: "bookmark.fill")
+                                } else {
+                                    Button(action: {
+                                        let bookmark = Bookmark(text: data.input, converter: "NATO")
+                                        
+                                        DataProvider.shared.create(bookmark: bookmark)
+                                    }) {
+                                        Label("Save", systemImage: "bookmark")
+                                    }
                                 }
                                 
                             }, label: {Image(systemName: "ellipsis.circle").imageScale(.large)})
