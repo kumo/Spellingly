@@ -13,16 +13,14 @@ struct BookmarksView: View {
     
     // MARK: - UI Elements
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(dataProvider.allBookmarks) { bookmark in
-                    Text(bookmark.text)
-                }
+        List {
+            ForEach(dataProvider.allBookmarks) { bookmark in
+                Text(bookmark.text)
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle(Text("Bookmarks"))
-            .listStyle(InsetListStyle())
         }
+        .navigationBarTitleDisplayMode(.automatic)
+        .navigationTitle(Text("Bookmarks"))
+        .listStyle(InsetListStyle())
     }
 }
 
