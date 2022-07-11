@@ -15,7 +15,12 @@ struct BookmarksView: View {
     var body: some View {
         List {
             ForEach(dataProvider.allBookmarks) { bookmark in
-                Text(bookmark.text)
+//                Text(bookmark.text)
+                LetterGrid(
+                    letters: bookmark.text.enumerated(),
+                    converter: Converter(),
+                    columns: Array(repeating: GridItem.init(.flexible()), count: 5))
+
             }
             .onDelete(perform: dataProvider.delete)
             .onMove(perform: dataProvider.move)
