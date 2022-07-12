@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct JSONData: Decodable {
-    let converters: [Converter]
+    let converters: [ConverterTOC]
 }
 
-struct Converter: Decodable, Identifiable, Hashable {
+struct ConverterTOC: Decodable, Identifiable, Hashable {
     let id: UUID
     let name: String
     let hidden: Bool
 }
 
 struct ConvertersView: View {
-    @State private var converters: [Converter] = []
+    @State private var converters: [ConverterTOC] = []
     
     var body: some View {
         List {
@@ -31,6 +31,7 @@ struct ConvertersView: View {
     
     
     private func readFile() {
+        // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
         if let url = Bundle.main.url(forResource: "Converters", withExtension: "json"),
            let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
