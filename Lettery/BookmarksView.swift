@@ -18,7 +18,7 @@ struct BookmarksView: View {
 //                Text(bookmark.text)
                 LetterGrid(
                     letters: bookmark.text.enumerated(),
-                    converter: Converter(),
+                    converter: BuiltInConverter(),
                     columns: Array(repeating: GridItem.init(.flexible()), count: 5))
 
             }

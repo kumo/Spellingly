@@ -18,7 +18,7 @@ class LetteryData: ObservableObject {
     @Published var cleanedInput = "Type your text.".enumerated()
 }
 
-class Converter {
+class BuiltInConverter {
     static func spellingForLetter(_ letter: String) -> String {
         let someDict:[String:String] = ["A":"Alpha", "B":"Bravo", "C":"Charlie", "D":"Delta", "E":"Echo", "F":"Foxtrot", "G":"Golf", "H":"Hotel", "I":"India", "J":"Juliett", "K":"Kilo", "L":"Lima", "M":"Mike", "N":"November", "O":"Oscar", "P":"Papa", "Q":"Quebec", "R":"Romeo", "S":"Sierra", "T":"Tango", "U":"Uniform", "V":"Victor", "W":"Whiskey", "X":"X-ray", "Y":"Yankee", "Z":"Zulu"]
         
@@ -37,7 +37,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                LetterGrid(letters: data.cleanedInput, converter: Converter())
+                LetterGrid(letters: data.cleanedInput, converter: BuiltInConverter())
                 
                 TextField("Type something", text: $data.input)
                     .focused($isFocused, equals: true)

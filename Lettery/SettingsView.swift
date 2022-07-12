@@ -20,7 +20,7 @@ struct SettingsView: View {
                 Section(header: Text("Preview")) {
                     LetterGrid(
                         letters: "Then to now".enumerated(),
-                        converter: Converter(),
+                        converter: BuiltInConverter(),
                         columns: Array(repeating: GridItem.init(.flexible()), count: 4))
                 }
                 .navigationTitle("Lettery")
