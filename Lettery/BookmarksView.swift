@@ -16,10 +16,10 @@ struct BookmarksView: View {
         List {
             ForEach(dataProvider.allBookmarks) { bookmark in
 //                Text(bookmark.text)
-                LetterGrid(
-                    letters: bookmark.text.enumerated(),
-                    converter: BuiltInConverter(),
-                    columns: Array(repeating: GridItem.init(.flexible()), count: 5))
+//                LetterGrid(
+//                    letters: bookmark.text.enumerated(),
+//                    converter: BuiltInConverter(),
+//                    columns: Array(repeating: GridItem.init(.flexible()), count: 5))
 
             }
             .onDelete(perform: dataProvider.delete)

@@ -12,57 +12,45 @@ struct Converter: Decodable, Identifiable {
     let title: String
     let author: String
     let language: String
-    let letters:[String:String]
+    let letters: [String:String]
 }
 
 struct ConverterView: View {
     @State private var converter: Converter?
-    
-    var body: some View {
-        List {
-            if let converter = converter {
-                Text(converter.title)
-                Text(converter.author)
-                HStack {
-                    Text("A")
-                        .foregroundColor(.accentColor)
-                    Text("for")
-                    Text(converter.letters["A"] ?? "?")
-                        .foregroundColor(.accentColor)
-                }
-                HStack {
-                    Text("B")
-                        .foregroundColor(.accentColor)
-                    Text("for")
-                    Text(converter.letters["B"] ?? "?")
-                        .foregroundColor(.accentColor)
-                }
-                HStack {
-                    Text("C")
-                        .foregroundColor(.accentColor)
-                    Text("for")
-                    Text(converter.letters["C"] ?? "?")
-                        .foregroundColor(.accentColor)
-                }
+    @StateObject var data = LetteryData()
+    @FocusState private var isFocused: Bool
 
-                //                ForEach(converter.letters, id: \.self) { letter in
-                //                    HStack {
-                //                        Text(letter.letter)
-                //                            .foregroundColor(.accentColor)
-                //
-                //                        Text("for")
-                //
-                //                        Text(letter.spelling)
-                //                            .foregroundColor(.accentColor)
-                //                    }
-                //                }
-            } else {
-                Text("Couldn't load converter")
+    var body: some View {
+        NavigationView {
+            VStack {
+                if let converter = converter {
+                    LetterGrid(letters: data.cleanedInput, converter: converter)
+                } else {
+                    Text("No working converter")
+                }
+                
+                TextField("Type something", text: $data.input)
+                    .focused($isFocused, equals: true)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
+                        
+                    }
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Text(converter?.title ?? "unknown").font(.headline)
+                                .onTapGesture {
+                                    print("Navigation title pressed...")
+                                }
+                        }
+                    }
             }
+            .padding(10.0)
         }
         .onAppear(perform: readFile)
+
+   
     }
-    
     
     private func readFile() {
         // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle

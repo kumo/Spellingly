@@ -11,7 +11,7 @@ import SwiftUI
 struct LetteryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ConverterView()
         }
     }
 }

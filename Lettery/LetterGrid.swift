@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LetterGrid: View {
     var letters: EnumeratedSequence<String> = "".enumerated()
-    var converter: BuiltInConverter
+    var converter: Converter
     var columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 5)
     
@@ -18,7 +18,7 @@ struct LetterGrid: View {
             LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
                 ForEach(Array(letters), id: \.offset) { character in
                     if let letter = String(character.element) {
-                        LetterView(letter: letter, spelling: BuiltInConverter.spellingForLetter(letter))
+                        LetterView(letter: letter, spelling: converter.letters[letter.uppercased()] ?? "")
                     }
                 }
             }
@@ -26,9 +26,9 @@ struct LetterGrid: View {
     }
 }
 
-struct LetterGrid_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        LetterGrid(letters: "Foxtrot is in November".enumerated(), converter: BuiltInConverter())
-    }
-}
+//struct LetterGrid_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        LetterGrid(letters: "Foxtrot is in November".enumerated(), converter: BuiltInConverter())
+//    }
+//}

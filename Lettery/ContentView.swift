@@ -37,7 +37,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                LetterGrid(letters: data.cleanedInput, converter: BuiltInConverter())
+//                LetterGrid(letters: data.cleanedInput, converter: BuiltInConverter())
                 
                 TextField("Type something", text: $data.input)
                     .focused($isFocused, equals: true)

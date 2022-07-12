@@ -18,10 +18,10 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 Section(header: Text("Preview")) {
-                    LetterGrid(
-                        letters: "Then to now".enumerated(),
-                        converter: BuiltInConverter(),
-                        columns: Array(repeating: GridItem.init(.flexible()), count: 4))
+//                    LetterGrid(
+//                        letters: "Then to now".enumerated(),
+//                        converter: BuiltInConverter(),
+//                        columns: Array(repeating: GridItem.init(.flexible()), count: 4))
                 }
                 .navigationTitle("Lettery")
                 
