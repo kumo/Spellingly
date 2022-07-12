@@ -32,7 +32,7 @@ struct ContentView: View {
     @State var showSettingsView = false
     
     // MARK: - Properties
-    @ObservedObject var dataProvider = DataProvider.shared
+    @ObservedObject var dataProvider = BookmarkDataProvider.shared
     
     var body: some View {
         NavigationView {
@@ -65,7 +65,7 @@ struct ContentView: View {
                                     Button(action: {
                                         let bookmark = Bookmark(text: data.input, converter: "NATO")
                                         
-                                        DataProvider.shared.create(bookmark: bookmark)
+                                        BookmarkDataProvider.shared.create(bookmark: bookmark)
                                     }) {
                                         Label("Save", systemImage: "bookmark")
                                     }

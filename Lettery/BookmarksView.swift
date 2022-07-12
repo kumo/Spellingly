@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookmarksView: View {
     // MARK: - Properties
-    @ObservedObject var dataProvider = DataProvider.shared
+    @ObservedObject var dataProvider = BookmarkDataProvider.shared
     
     // MARK: - UI Elements
     var body: some View {

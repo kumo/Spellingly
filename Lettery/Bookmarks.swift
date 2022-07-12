@@ -15,10 +15,10 @@ struct Bookmark: Codable, Identifiable {
     let converter: String
 }
 
-class DataProvider: ObservableObject {
+class BookmarkDataProvider: ObservableObject {
     
     // MARK: - Propeties
-    static let shared = DataProvider()
+    static let shared = BookmarkDataProvider()
     private let dataSourceURL: URL
     @Published var allBookmarks = [Bookmark]()
     
