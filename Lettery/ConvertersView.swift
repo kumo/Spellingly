@@ -7,37 +7,29 @@
 
 import SwiftUI
 
-struct JSONData: Decodable {
-    let converters: [ConverterTOC]
-}
-
-struct ConverterTOC: Decodable, Identifiable, Hashable {
-    let id: UUID
-    let name: String
-    let hidden: Bool
-}
-
 struct ConvertersView: View {
-    @State private var converters: [ConverterTOC] = []
     
+    // MARK: - Properties
+    @ObservedObject var dataProvider = ConverterFileDataProvider.shared
+    
+    // MARK: - UI Elements
     var body: some View {
-        List {
-            ForEach(converters, id: \.self) { converter in
-                Text(converter.name)
+        NavigationView {
+            List {
+                ForEach(dataProvider.allConverters, id: \.self) { converter in
+                    Text(converter.name)
+                }
+                .onDelete(perform: dataProvider.delete)
+                .onMove(perform: dataProvider.move)
+                Text("Restore converters")
+                    .foregroundColor(.accentColor)
             }
-        }
-        .onAppear(perform: readFile)
-    }
-    
-    
-    private func readFile() {
-        // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
-        if let url = Bundle.main.url(forResource: "Converters", withExtension: "json"),
-           let data = try? Data(contentsOf: url) {
-            let decoder = JSONDecoder()
-            if let jsonData = try? decoder.decode(JSONData.self, from: data) {
-                self.converters = jsonData.converters
-            }
+            .navigationBarTitleDisplayMode(.automatic)
+            .navigationTitle(Text("Converters"))
+            .listStyle(InsetListStyle())
+            .navigationBarItems(
+                trailing: EditButton()
+            )
         }
     }
 }

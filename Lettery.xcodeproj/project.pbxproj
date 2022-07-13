@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF632A92287CACF200D89D44 /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF632A91287CACF200D89D44 /* Bookmarks.swift */; };
 		BF632A94287CB0CC00D89D44 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF632A93287CB0CC00D89D44 /* BookmarksView.swift */; };
+		BF6889B3287F083100904C32 /* Converters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6889B2287F083100904C32 /* Converters.swift */; };
 		BF7A0066287DF97D005E8B2C /* NATO.json in Resources */ = {isa = PBXBuildFile; fileRef = BF7A0065287DF97D005E8B2C /* NATO.json */; };
 		BF7A0069287E0196005E8B2C /* Converters.json in Resources */ = {isa = PBXBuildFile; fileRef = BF7A0068287E0196005E8B2C /* Converters.json */; };
 		BF7A006B287E0527005E8B2C /* ConvertersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A006A287E0527005E8B2C /* ConvertersView.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		BF632A91287CACF200D89D44 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		BF632A93287CB0CC00D89D44 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		BF6889B2287F083100904C32 /* Converters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converters.swift; sourceTree = "<group>"; };
 		BF7A0065287DF97D005E8B2C /* NATO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NATO.json; sourceTree = "<group>"; };
 		BF7A0068287E0196005E8B2C /* Converters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Converters.json; sourceTree = "<group>"; };
 		BF7A006A287E0527005E8B2C /* ConvertersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertersView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				BF7A006C287E1411005E8B2C /* ConverterView.swift */,
 				BF7A0067287DFBB3005E8B2C /* Converters */,
 				BF632A91287CACF200D89D44 /* Bookmarks.swift */,
+				BF6889B2287F083100904C32 /* Converters.swift */,
 				BF805C0D287B27A900AA6E8F /* SettingsView.swift */,
 				BF632A93287CB0CC00D89D44 /* BookmarksView.swift */,
 				BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */,
@@ -186,6 +189,7 @@
 				BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */,
 				BFD2BB4D28763D77005FCAF2 /* LetteryApp.swift in Sources */,
 				BF7A006B287E0527005E8B2C /* ConvertersView.swift in Sources */,
+				BF6889B3287F083100904C32 /* Converters.swift in Sources */,
 				BF632A92287CACF200D89D44 /* Bookmarks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
