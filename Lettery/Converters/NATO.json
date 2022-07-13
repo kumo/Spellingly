@@ -1,8 +1,9 @@
 {
   "id": "f9f1a704-9545-460d-9dfb-c8b4feec6b84",
-  "title": "NATO",
+  "name": "NATO",
   "author": "Wikipedia",
   "language": "en",
+  "startingMessage": "Much needed",
   "letters": {
     "A" : "Alpha",
     "B" : "Bravo",

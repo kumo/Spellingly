@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct Converter: Decodable, Identifiable {
-    let id: UUID
-    let title: String
-    let author: String
-    let language: String
-    let letters: [String:String]
-}
-
 struct ConverterView: View {
     @State private var converter: Converter?
     @StateObject var data = LetteryData()
@@ -29,7 +21,7 @@ struct ConverterView: View {
                     Text("No working converter")
                 }
                 
-                TextField("Type something", text: $data.input)
+                TextField(converter?.startingMessage ?? "Type your text!", text: $data.input)
                     .focused($isFocused, equals: true)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
@@ -38,7 +30,7 @@ struct ConverterView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            Text(converter?.title ?? "unknown").font(.headline)
+                            Text(converter?.name ?? "Unknown").font(.headline)
                                 .onTapGesture {
                                     print("Navigation title pressed...")
                                 }
@@ -54,7 +46,7 @@ struct ConverterView: View {
     
     private func readFile() {
         // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
-        if let url = Bundle.main.url(forResource: "NATO", withExtension: "json"),
+        if let url = Bundle.main.url(forResource: "Italiano", withExtension: "json"),
            let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
             if let jsonData = try? decoder.decode(Converter.self, from: data) {
@@ -63,6 +55,8 @@ struct ConverterView: View {
                 print("Couldn't decode file")
             }
         }
+        
+        data.cleanedInput = (converter?.startingMessage ?? "Type your text.").enumerated()
         
         //        if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
         //            let fileUrl = documentsDirectory.appendingPathComponent("NATO.json")

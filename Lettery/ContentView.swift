@@ -16,6 +16,7 @@ class LetteryData: ObservableObject {
         }
     }
     @Published var cleanedInput = "Type your text.".enumerated()
+    @Published var converter: Converter?
 }
 
 class BuiltInConverter {
@@ -27,17 +28,24 @@ class BuiltInConverter {
 }
 
 struct ContentView: View {
+    
+    // MARK: - Properties
     @StateObject var data = LetteryData()
     @FocusState private var isFocused: Bool
     @State var showSettingsView = false
-    
-    // MARK: - Properties
+    @State var showConvertersView = false
     @ObservedObject var dataProvider = BookmarkDataProvider.shared
+    @AppStorage("converterNameKey") var converterName: String = "NATO"
     
+    // MARK: - UI Elements
     var body: some View {
         NavigationView {
             VStack {
-//                LetterGrid(letters: data.cleanedInput, converter: BuiltInConverter())
+                if let converter = data.converter {
+                    LetterGrid(letters: data.cleanedInput, converter: converter)
+                } else {
+                    Text("No converter loaded.")
+                }
                 
                 TextField("Type something", text: $data.input)
                     .focused($isFocused, equals: true)
@@ -48,9 +56,13 @@ struct ContentView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            Text("NATO").font(.headline)
+                            Text(data.converter?.name ?? "Unknown").font(.headline)
                                 .onTapGesture {
                                     print("Navigation title pressed...")
+                                    self.showConvertersView.toggle()
+                                }
+                                .sheet(isPresented: $showConvertersView) {
+                                    ConvertersView()
                                 }
                         }
                         
@@ -63,7 +75,7 @@ struct ContentView: View {
                                     Label("Saved", systemImage: "bookmark.fill")
                                 } else {
                                     Button(action: {
-                                        let bookmark = Bookmark(text: data.input, converter: "NATO")
+                                        let bookmark = Bookmark(text: data.input, converter: converterName)
                                         
                                         BookmarkDataProvider.shared.create(bookmark: bookmark)
                                     }) {
@@ -88,7 +100,21 @@ struct ContentView: View {
             }
             .padding(10.0)
         }
-        
+        .onAppear(perform: loadConverter)
+    }
+    
+    private func loadConverter() {
+        // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
+        if let url = Bundle.main.url(forResource: converterName, withExtension: "json"),
+           let data = try? Data(contentsOf: url) {
+            let decoder = JSONDecoder()
+            if let jsonData = try? decoder.decode(Converter.self, from: data) {
+                self.data.converter = jsonData
+                self.data.cleanedInput = jsonData.startingMessage.enumerated()
+            } else {
+                print("Couldn't decode file")
+            }
+        }
     }
 }
 
