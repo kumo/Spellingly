@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct LetteryApp: App {
+
+    // MARK: - UI Elements
     var body: some Scene {
         WindowGroup {
-            ConverterView()
+            ContentView()
         }
     }
 }
