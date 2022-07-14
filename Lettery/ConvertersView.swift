@@ -10,14 +10,27 @@ import SwiftUI
 struct ConvertersView: View {
     
     // MARK: - Properties
-    @ObservedObject var dataProvider = ConverterFileDataProvider.shared
-    
+    @ObservedObject var dataProvider = ConverterDataProvider.shared
+    @AppStorage("converterIdKey") var converterId: String = ""
+    @Environment(\.dismiss) var dismiss
+
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
             List {
-                ForEach(dataProvider.allConverters, id: \.self) { converter in
-                    Text(converter.name)
+                ForEach(Array(dataProvider.allConverters.enumerated()), id: \.element) { index, converter in
+                    Button(action: {
+                        converterId = converter.id.uuidString;
+                    }) {
+
+                        HStack {
+                        Text(converter.name)
+                        
+                    if converterId == converter.id.uuidString {
+                        Image(systemName: "checkmark")
+                    }
+                        }
+                    }
                 }
                 .onDelete(perform: dataProvider.delete)
                 .onMove(perform: dataProvider.move)
@@ -30,6 +43,11 @@ struct ConvertersView: View {
             .navigationBarItems(
                 trailing: EditButton()
             )
+            .toolbar {
+                                Button("Done") {
+                                    dismiss()
+                                }
+                            }
         }
     }
 }

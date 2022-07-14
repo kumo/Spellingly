@@ -16,7 +16,7 @@ class LetteryData: ObservableObject {
         }
     }
     @Published var cleanedInput = "Type your text.".enumerated()
-    @Published var converter: Converter?
+    @Published var converter: Converter = ConverterDataProvider.loadDefaultConverter()
 }
 
 struct ContentView: View {
@@ -27,7 +27,9 @@ struct ContentView: View {
     @State var showSettingsView = false
     @State var showConvertersView = false
     @ObservedObject var dataProvider = BookmarkDataProvider.shared
-    @AppStorage("converterNameKey") var converterName: String = "NATO"
+    @ObservedObject var converterDataProvider = ConverterDataProvider.shared
+    @AppStorage("converterIdKey") var converterId: String = ""
+        
     
     // MARK: - UI Elements
     var body: some View {
@@ -48,12 +50,14 @@ struct ContentView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            Text(data.converter?.name ?? "Unknown").font(.headline)
+                            // FIXME: Ensure that the title width is adjusted
+                            Text(data.converter.name).font(.headline)
                                 .onTapGesture {
                                     print("Navigation title pressed...")
                                     self.showConvertersView.toggle()
                                 }
-                                .sheet(isPresented: $showConvertersView) {
+                                .sheet(isPresented: $showConvertersView,
+                                       onDismiss: loadConverter) {
                                     ConvertersView()
                                 }
                         }
@@ -63,11 +67,11 @@ struct ContentView: View {
                                 Button(action: {}) {
                                     Label("Share", systemImage: "square.and.arrow.up")
                                 }
-                                if dataProvider.allBookmarks.firstIndex { $0.text == data.input} != nil {
+                                if dataProvider.allBookmarks.firstIndex { $0.text == data.input && $0.converter == data.converter.name } != nil {
                                     Label("Saved", systemImage: "bookmark.fill")
                                 } else {
                                     Button(action: {
-                                        let bookmark = Bookmark(text: data.input, converter: converterName)
+                                        let bookmark = Bookmark(text: data.input, converter: data.converter.name)
                                         
                                         BookmarkDataProvider.shared.create(bookmark: bookmark)
                                     }) {
@@ -96,17 +100,18 @@ struct ContentView: View {
     }
     
     private func loadConverter() {
-        // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
-        if let url = Bundle.main.url(forResource: converterName, withExtension: "json"),
-           let data = try? Data(contentsOf: url) {
-            let decoder = JSONDecoder()
-            if let jsonData = try? decoder.decode(Converter.self, from: data) {
-                self.data.converter = jsonData
-                self.data.cleanedInput = jsonData.startingMessage.enumerated()
-            } else {
-                print("Couldn't decode file")
-            }
+        // TODO: Make the ConverterDataProvider be responsible for this edge case
+        guard let uuid = UUID(uuidString: converterId),
+              let converter = converterDataProvider.loadConverterById(uuid)
+        else {
+            print("No converter specified. Loading default")
+            self.data.converter = ConverterDataProvider.loadDefaultConverter()
+            converterId = self.data.converter.id.uuidString
+            
+            return
         }
+        
+        self.data.converter = converter
     }
 }
 

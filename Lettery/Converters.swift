@@ -35,10 +35,10 @@ struct ConverterFile: Codable, Identifiable, Hashable {
     var hidden: Bool
 }
 
-class ConverterFileDataProvider: ObservableObject {
+class ConverterDataProvider: ObservableObject {
     
     // MARK: - Propeties
-    static let shared = ConverterFileDataProvider()
+    static let shared = ConverterDataProvider()
     private let dataSourceURL: URL
     @Published var allConverters = [ConverterFile]()
     
@@ -90,9 +90,10 @@ class ConverterFileDataProvider: ObservableObject {
     }
     
     func delete(_ offsets: IndexSet) {
-        offsets.forEach { index in
-            allConverters[index].hidden = true
-        }
+//        offsets.forEach { index in
+//            allConverters[index].hidden = true
+//        }
+        allConverters.remove(atOffsets: offsets)
         saveConverters()
     }
     
@@ -107,3 +108,38 @@ class ConverterFileDataProvider: ObservableObject {
     }
 }
 
+extension ConverterDataProvider {
+    func loadConverter(_ converter: ConverterFile) -> Converter? {
+        // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
+        if let url = Bundle.main.url(forResource: converter.name, withExtension: "json"),
+           let data = try? Data(contentsOf: url) {
+            let decoder = JSONDecoder()
+            if let jsonData = try? decoder.decode(Converter.self, from: data) {
+                return jsonData
+            } else {
+                print("Couldn't decode file")
+            }
+        }
+        
+        return nil
+    }
+    
+    func loadConverterById(_ id: UUID) -> Converter? {
+        guard let converter = allConverters.first(where: { $0.id == id}) else {
+            return ConverterDataProvider.loadDefaultConverter()
+        }
+        
+        return loadConverter(converter)
+    }
+}
+
+extension ConverterDataProvider {
+    static func loadDefaultConverter() -> Converter {
+        let url = Bundle.main.url(forResource: "NATO", withExtension: "json")!
+        let data = try! Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        let jsonData = try! decoder.decode(Converter.self, from: data)
+        
+        return jsonData
+    }
+}
