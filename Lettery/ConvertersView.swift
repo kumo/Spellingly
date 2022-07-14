@@ -13,7 +13,7 @@ struct ConvertersView: View {
     @ObservedObject var dataProvider = ConverterDataProvider.shared
     @AppStorage("converterIdKey") var converterId: String = ""
     @Environment(\.dismiss) var dismiss
-
+    
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
@@ -22,13 +22,12 @@ struct ConvertersView: View {
                     Button(action: {
                         converterId = converter.id.uuidString;
                     }) {
-
                         HStack {
-                        Text(converter.name)
-                        
-                    if converterId == converter.id.uuidString {
-                        Image(systemName: "checkmark")
-                    }
+                            Text(converter.name)
+                            
+                            if converterId == converter.id.uuidString {
+                                Image(systemName: "checkmark")
+                            }
                         }
                     }
                 }
@@ -44,10 +43,10 @@ struct ConvertersView: View {
                 trailing: EditButton()
             )
             .toolbar {
-                                Button("Done") {
-                                    dismiss()
-                                }
-                            }
+                Button("Done") {
+                    dismiss()
+                }
+            }
         }
     }
 }

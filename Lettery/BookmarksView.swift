@@ -15,6 +15,7 @@ struct BookmarksView: View {
     var body: some View {
         List {
             ForEach(dataProvider.allBookmarks) { bookmark in
+                BookmarkGrid(bookmark: bookmark)
 //                Text(bookmark.text)
 //                LetterGrid(
 //                    letters: bookmark.text.enumerated(),

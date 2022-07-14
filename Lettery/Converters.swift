@@ -32,7 +32,7 @@ struct ConverterFile: Codable, Identifiable, Hashable {
     // MARK: - Properties
     let id: UUID
     let name: String
-    var hidden: Bool
+    let included: Bool
 }
 
 class ConverterDataProvider: ObservableObject {

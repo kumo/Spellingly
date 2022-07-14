@@ -67,13 +67,11 @@ struct ContentView: View {
                                 Button(action: {}) {
                                     Label("Share", systemImage: "square.and.arrow.up")
                                 }
-                                if dataProvider.allBookmarks.firstIndex { $0.text == data.input && $0.converter == data.converter.name } != nil {
+                                if dataProvider.allBookmarks.firstIndex { $0.text == data.input && $0.converterId == data.converter.id } != nil {
                                     Label("Saved", systemImage: "bookmark.fill")
                                 } else {
                                     Button(action: {
-                                        let bookmark = Bookmark(text: data.input, converter: data.converter.name)
-                                        
-                                        BookmarkDataProvider.shared.create(bookmark: bookmark)
+                                        BookmarkDataProvider.shared.create(text: data.input, converter: data.converter)
                                     }) {
                                         Label("Save", systemImage: "bookmark")
                                     }

@@ -7,12 +7,21 @@
 
 import Foundation
 
+struct BookmarkSpelling: Codable, Hashable, Identifiable {
+
+    var id = UUID()
+    let letter: String
+    let spelling: String
+}
+
 struct Bookmark: Codable, Identifiable {
     
     // MARK: - Properties
     var id = UUID()
     let text: String
-    let converter: String
+    let converterId: UUID
+    let converterName: String
+    let spellings: [BookmarkSpelling]
 }
 
 class BookmarkDataProvider: ObservableObject {
@@ -54,7 +63,15 @@ class BookmarkDataProvider: ObservableObject {
         }
     }
     
-    func create(bookmark: Bookmark) {
+    func create(text: String, converter: Converter) {
+        var spellings: [BookmarkSpelling] = []
+        
+        text.enumerated().forEach { character in
+            spellings.append(BookmarkSpelling(letter: String(character.element), spelling: converter.spellingForLetter(String(character.element))))
+        }
+
+        let bookmark = Bookmark(text: text, converterId: converter.id, converterName: converter.name, spellings: spellings)
+
         allBookmarks.append(bookmark)
         saveBookmarks()
     }

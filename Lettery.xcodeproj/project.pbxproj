@@ -18,6 +18,7 @@
 		BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C04287AE30200AA6E8F /* LetterView.swift */; };
 		BF805C0C287B0FBC00AA6E8F /* LetterGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */; };
 		BF805C0E287B27A900AA6E8F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C0D287B27A900AA6E8F /* SettingsView.swift */; };
+		BFB92DD028804B1000F1F93C /* BookmarkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */; };
 		BFD2BB4D28763D77005FCAF2 /* LetteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */; };
 		BFD2BB4F28763D77005FCAF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4E28763D77005FCAF2 /* ContentView.swift */; };
 		BFD2BB5128763D7A005FCAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		BF805C04287AE30200AA6E8F /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterGrid.swift; sourceTree = "<group>"; };
 		BF805C0D287B27A900AA6E8F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGrid.swift; sourceTree = "<group>"; };
 		BFD2BB4928763D77005FCAF2 /* Lettery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lettery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetteryApp.swift; sourceTree = "<group>"; };
 		BFD2BB4E28763D77005FCAF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				BF805C0D287B27A900AA6E8F /* SettingsView.swift */,
 				BF632A93287CB0CC00D89D44 /* BookmarksView.swift */,
 				BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */,
+				BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */,
 				BF805C04287AE30200AA6E8F /* LetterView.swift */,
 				BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */,
 				BFD2BB5228763D7A005FCAF2 /* Preview Content */,
@@ -189,6 +192,7 @@
 				BF805C0E287B27A900AA6E8F /* SettingsView.swift in Sources */,
 				BFD2BB4F28763D77005FCAF2 /* ContentView.swift in Sources */,
 				BF632A94287CB0CC00D89D44 /* BookmarksView.swift in Sources */,
+				BFB92DD028804B1000F1F93C /* BookmarkGrid.swift in Sources */,
 				BF805C0C287B0FBC00AA6E8F /* LetterGrid.swift in Sources */,
 				BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */,
 				BFD2BB4D28763D77005FCAF2 /* LetteryApp.swift in Sources */,
