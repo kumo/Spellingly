@@ -4,7 +4,7 @@
   "author": "Wikipedia",
   "language": "en",
   "startingMessage": "Much needed",
-  "letters": {
+  "spellings": {
     "A" : "Alpha",
     "B" : "Bravo",
     "C" : "Charlie",

@@ -4,7 +4,7 @@
   "author": "Wikipedia - https://it.wikipedia.org/wiki/Alfabeto_telefonico_italiano",
   "language": "it",
   "startingMessage": "Ciao, come va?",
-  "letters": {
+  "spellings": {
     "A" : "Ancona",
     "B" : "Bari",
     "C" : "Como",

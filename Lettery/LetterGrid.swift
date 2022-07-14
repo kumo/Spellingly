@@ -18,7 +18,7 @@ struct LetterGrid: View {
             LazyVGrid(columns: columns, alignment: .center, spacing: 10.0) {
                 ForEach(Array(letters), id: \.offset) { character in
                     if let letter = String(character.element) {
-                        LetterView(letter: letter, spelling: converter.letters[letter.uppercased()] ?? "")
+                        LetterView(letter: letter, spelling: converter.spellingForLetter(letter))
                     }
                 }
             }
