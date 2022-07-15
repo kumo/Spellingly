@@ -68,6 +68,7 @@ struct ContentView: View {
                                 Button(action: {}) {
                                     Label("Share", systemImage: "square.and.arrow.up")
                                 }
+                                
                                 if dataProvider.allBookmarks.firstIndex { $0.text == data.input && $0.converterId == data.converter.id } != nil {
                                     Label("Saved", systemImage: "bookmark.fill")
                                 } else {
@@ -78,6 +79,11 @@ struct ContentView: View {
                                     }
                                 }
                                 
+                                Picker("Converter", selection: $selectedItem) {
+                                    ForEach(Array(converterDataProvider.allConverters.enumerated()), id: \.element) { index, item in
+                                        Text(item.name).tag(item.id.uuidString)
+                                    }
+                                }
                             }, label: {Image(systemName: "ellipsis.circle").imageScale(.large)})
                         }
                     }
