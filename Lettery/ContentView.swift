@@ -106,10 +106,11 @@ struct ContentView: View {
             print("No converter specified. Loading default")
             self.data.converter = ConverterDataProvider.loadDefaultConverter()
             converterId = self.data.converter.id.uuidString
-            
+            selectedItem = converterId
             return
         }
         
+        selectedItem = converterId
         self.data.converter = converter
     }
 }
