@@ -30,18 +30,19 @@ struct ContentView: View {
     @ObservedObject var converterDataProvider = ConverterDataProvider.shared
     @AppStorage("converterIdKey") var converterId: String = ""
     @State private var selectedItem: String = ""
-        
+    @AppStorage("showCapitalSpellingsKey") var showCapitalSpellings: Bool = false
     
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
             VStack {
-                if let converter = data.converter {
-                    LetterGrid(letters: data.cleanedInput, converter: converter)
+                if let preferredColumns = data.converter.preferredColumns {
+                    // FIXME: Rewrite this
+                    LetterGrid(letters: data.cleanedInput, converter: data.converter, columns: Array(repeating: .init(.flexible()), count: (showCapitalSpellings ? preferredColumns - 1 : preferredColumns)))
                 } else {
-                    Text("No converter loaded.")
+                    LetterGrid(letters: data.cleanedInput, converter: data.converter)
                 }
-                
+
                 TextField("Type something", text: $data.input)
                     .focused($isFocused, equals: true)
                     .onTapGesture {
