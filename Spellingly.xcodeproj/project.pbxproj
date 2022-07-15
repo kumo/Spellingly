@@ -19,7 +19,7 @@
 		BF805C0C287B0FBC00AA6E8F /* LetterGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */; };
 		BF805C0E287B27A900AA6E8F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C0D287B27A900AA6E8F /* SettingsView.swift */; };
 		BFB92DD028804B1000F1F93C /* BookmarkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */; };
-		BFD2BB4D28763D77005FCAF2 /* LetteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */; };
+		BFD2BB4D28763D77005FCAF2 /* SpellinglyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4C28763D77005FCAF2 /* SpellinglyApp.swift */; };
 		BFD2BB4F28763D77005FCAF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4E28763D77005FCAF2 /* ContentView.swift */; };
 		BFD2BB5128763D7A005FCAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */; };
 		BFD2BB5428763D7A005FCAF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD2BB5328763D7A005FCAF2 /* Preview Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		BF805C0D287B27A900AA6E8F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGrid.swift; sourceTree = "<group>"; };
 		BFD2BB4928763D77005FCAF2 /* Spellingly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spellingly.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetteryApp.swift; sourceTree = "<group>"; };
+		BFD2BB4C28763D77005FCAF2 /* SpellinglyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellinglyApp.swift; sourceTree = "<group>"; };
 		BFD2BB4E28763D77005FCAF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFD2BB5328763D7A005FCAF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		BFD2BB4B28763D77005FCAF2 /* Spellingly */ = {
 			isa = PBXGroup;
 			children = (
-				BFD2BB4C28763D77005FCAF2 /* LetteryApp.swift */,
+				BFD2BB4C28763D77005FCAF2 /* SpellinglyApp.swift */,
 				BFD2BB4E28763D77005FCAF2 /* ContentView.swift */,
 				BF7A006A287E0527005E8B2C /* ConvertersView.swift */,
 				BF7A006C287E1411005E8B2C /* ConverterView.swift */,
@@ -195,7 +195,7 @@
 				BFB92DD028804B1000F1F93C /* BookmarkGrid.swift in Sources */,
 				BF805C0C287B0FBC00AA6E8F /* LetterGrid.swift in Sources */,
 				BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */,
-				BFD2BB4D28763D77005FCAF2 /* LetteryApp.swift in Sources */,
+				BFD2BB4D28763D77005FCAF2 /* SpellinglyApp.swift in Sources */,
 				BF7A006B287E0527005E8B2C /* ConvertersView.swift in Sources */,
 				BF6889B3287F083100904C32 /* Converters.swift in Sources */,
 				BF632A92287CACF200D89D44 /* Bookmarks.swift in Sources */,
