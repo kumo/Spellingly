@@ -37,7 +37,7 @@ struct SettingsView: View {
                             columns: Array(repeating: GridItem.init(.flexible()), count: 4))
                     }
                 }
-                .navigationTitle("Lettery")
+                .navigationTitle("Spellingly")
                 
                 Section(header: Text("Options")) {
                     Toggle("Show capital letters", isOn: $showCapitals)
