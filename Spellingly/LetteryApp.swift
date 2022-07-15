@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct LetteryApp: App {
+struct SpellinglyApp: App {
 
     // MARK: - UI Elements
     var body: some Scene {
