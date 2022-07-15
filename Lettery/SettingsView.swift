@@ -7,12 +7,19 @@
 
 import SwiftUI
 
+enum SpellingPosition: String, CaseIterable, Identifiable {
+    case top
+    case below
+    
+    var id: SpellingPosition { self }
+}
+
 struct SettingsView: View {
 
     // MARK: - Properties
     @AppStorage("showCapitalsKey") var showCapitals: Bool = false
     @AppStorage("showCapitalSpellingsKey") var showCapitalSpellings: Bool = false
-    @AppStorage("showSpellingOnTopKey") var showSpellingOnTop: Bool = true
+    @AppStorage("spellingPositionKey") var spellingPosition: SpellingPosition = .top
     @AppStorage("removeLeadingSpacesKey") var removeLeadingSpace: Bool = false
     @AppStorage("removeTrailingLettersKey") var startOnNewLine: Bool = false
     @AppStorage("converterNameKey") var converterName: String = "NATO"
@@ -35,7 +42,11 @@ struct SettingsView: View {
                 Section(header: Text("Options")) {
                     Toggle("Show capital letters", isOn: $showCapitals)
                     Toggle("Show capital spellings", isOn: $showCapitalSpellings)
-                    Toggle("Show spelling on top", isOn: $showSpellingOnTop)
+                    Picker("Spelling position", selection: $spellingPosition ) {
+                        ForEach(SpellingPosition.allCases, content: { position in
+                            Text(position.rawValue.capitalized)
+                        })
+                    }
                     Toggle("Remove leading spaces", isOn: $removeLeadingSpace)
                         .disabled(true)
                     Toggle("Start words on a new line", isOn: $startOnNewLine)

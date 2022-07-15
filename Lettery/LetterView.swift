@@ -12,11 +12,11 @@ struct LetterView: View {
     var spelling: String
     @AppStorage("showCapitalsKey") var showCapitals: Bool = false
     @AppStorage("showCapitalSpellingsKey") var showCapitalSpellings: Bool = false
-    @AppStorage("showSpellingOnTopKey") var showSpellingOnTop: Bool = true
+    @AppStorage("spellingPositionKey") var spellingPosition: SpellingPosition = .top
 
     var body: some View {
         VStack {
-            if !showSpellingOnTop {
+            if spellingPosition == .below {
                 Text(showCapitals ? letter.uppercased() : letter)
                     .font(.largeTitle)
             }
@@ -27,7 +27,7 @@ struct LetterView: View {
                 .allowsTightening(true)
                 .lineLimit(1)
 
-            if showSpellingOnTop {
+            if spellingPosition == .top {
                 Text(showCapitals ? letter.uppercased() : letter)
                     .font(.largeTitle)
             }
