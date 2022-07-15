@@ -16,38 +16,51 @@ struct ConvertersView: View {
     
     // MARK: - UI Elements
     var body: some View {
-        NavigationView {
-            List {
+        List {
+            Section {
                 ForEach(Array(dataProvider.allConverters.enumerated()), id: \.element) { index, converter in
-                    Button(action: {
-                        converterId = converter.id.uuidString;
-                    }) {
+                    VStack {
                         HStack {
                             Text(converter.name)
                             
-                            if converterId == converter.id.uuidString {
-                                Image(systemName: "checkmark")
+                            Spacer()
+//
+//                            Button(action: {}) {
+//                                Image(systemName: "info.circle")
+//                            }
+//                            .foregroundColor(.accentColor)
+                        }
+                        if let comment = converter.comment {
+                            HStack {
+                                Text(comment)
+                                    .font(.caption)
+                                Spacer()
                             }
                         }
                     }
                 }
                 .onDelete(perform: dataProvider.delete)
                 .onMove(perform: dataProvider.move)
-                Text("Restore converters")
-                    .foregroundColor(.accentColor)
-            }
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationTitle(Text("Converters"))
-            .listStyle(InsetListStyle())
-            .navigationBarItems(
-                trailing: EditButton()
-            )
-            .toolbar {
-                Button("Done") {
-                    dismiss()
+            } footer: {
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        dataProvider.restoreConverters()
+                    }) {
+                        Text("Restore converters")
+                            .font(.footnote)
+                    }
+
+                    Spacer()
                 }
             }
         }
+        .navigationBarTitleDisplayMode(.automatic)
+        .navigationTitle(Text("Converters"))
+        .navigationBarItems(
+            trailing: EditButton()
+        )
     }
 }
 

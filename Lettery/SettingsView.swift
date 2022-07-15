@@ -50,6 +50,11 @@ struct SettingsView: View {
                     } label: {
                         Label("Bookmarks", systemImage: "bookmark.circle.fill")
                     }
+                    NavigationLink {
+                        ConvertersView()
+                    } label: {
+                        Label("Converters", systemImage: "abc")
+                    }
                     Label("Support", systemImage: "link.circle.fill")
                         .disabled(true)
                 }

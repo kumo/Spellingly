@@ -33,6 +33,7 @@ struct ConverterFile: Codable, Identifiable, Hashable {
     let id: UUID
     let name: String
     let included: Bool
+    let comment: String?
 }
 
 class ConverterDataProvider: ObservableObject {
@@ -141,5 +142,12 @@ extension ConverterDataProvider {
         let jsonData = try! decoder.decode(Converter.self, from: data)
         
         return jsonData
+    }
+}
+
+extension ConverterDataProvider {
+    func restoreConverters() {
+        allConverters = getAllConvertersFromBundle()
+        saveConverters()
     }
 }
