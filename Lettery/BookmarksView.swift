@@ -15,7 +15,11 @@ struct BookmarksView: View {
     var body: some View {
         List {
             ForEach(dataProvider.allBookmarks) { bookmark in
-                BookmarkGrid(bookmark: bookmark)
+                if let preferredColumns = bookmark.preferredColumns {
+                    BookmarkGrid(bookmark: bookmark, columns: Array(repeating: .init(.flexible()), count: preferredColumns))
+                } else {
+                    BookmarkGrid(bookmark: bookmark)
+                }
 //                Text(bookmark.text)
 //                LetterGrid(
 //                    letters: bookmark.text.enumerated(),

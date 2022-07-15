@@ -21,6 +21,7 @@ struct Bookmark: Codable, Identifiable {
     let text: String
     let converterId: UUID
     let converterName: String
+    let preferredColumns: Int?
     let spellings: [BookmarkSpelling]
 }
 
@@ -64,13 +65,17 @@ class BookmarkDataProvider: ObservableObject {
     }
     
     func create(text: String, converter: Converter) {
+        guard !text.isEmpty else {
+            return
+        }
+        
         var spellings: [BookmarkSpelling] = []
         
         text.enumerated().forEach { character in
             spellings.append(BookmarkSpelling(letter: String(character.element), spelling: converter.spellingForLetter(String(character.element))))
         }
 
-        let bookmark = Bookmark(text: text, converterId: converter.id, converterName: converter.name, spellings: spellings)
+        let bookmark = Bookmark(text: text, converterId: converter.id, converterName: converter.name, preferredColumns: converter.preferredColumns, spellings: spellings)
 
         allBookmarks.append(bookmark)
         saveBookmarks()

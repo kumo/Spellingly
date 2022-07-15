@@ -15,6 +15,7 @@ struct Converter: Codable, Identifiable {
     let author: String
     let language: String
     let startingMessage: String
+    let preferredColumns: Int?
     let spellings: [String:String]
 }
 
