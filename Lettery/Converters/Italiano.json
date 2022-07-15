@@ -30,6 +30,17 @@
     "W" : "vu doppia",
     "X" : "ics",
     "Y" : "ipsilon",
-    "Z" : "Zara"
+    "Z" : "Zara",
+    "." : "Punto",
+    "," : "Virgola",
+    "@" : "Chiocciola",
+    "-" : "Trattino",
+    "_" : "Trattino basso",
+    ":" : "Due punti",
+    "+" : "Più",
+    "/" : "Barra",
+    "~" : "Tilde",
+    "#" : "Cancelletto",
+    "=" : "Uguale"
   }
 }

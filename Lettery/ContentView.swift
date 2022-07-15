@@ -44,6 +44,9 @@ struct ContentView: View {
                 
                 TextField("Type something", text: $data.input)
                     .focused($isFocused, equals: true)
+                    .onTapGesture {
+                        self.isFocused = true
+                    }
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ self.isFocused = true }
                         
