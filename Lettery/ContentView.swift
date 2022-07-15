@@ -15,7 +15,7 @@ class LetteryData: ObservableObject {
             // TODO: add support for word wrapping and setting
         }
     }
-    @Published var cleanedInput = "Type your text.".enumerated()
+    @Published var cleanedInput = "".enumerated()
     @Published var converter: Converter = ConverterDataProvider.loadDefaultConverter()
 }
 
@@ -110,18 +110,24 @@ struct ContentView: View {
     
     private func loadConverter() {
         // TODO: Make the ConverterDataProvider be responsible for this edge case
-        guard let uuid = UUID(uuidString: converterId),
-              let converter = converterDataProvider.loadConverterById(uuid)
-        else {
+        if let uuid = UUID(uuidString: converterId),
+              let converter = converterDataProvider.loadConverterById(uuid) {
+            self.data.converter = converter
+        } else {
             print("No converter specified. Loading default")
             self.data.converter = ConverterDataProvider.loadDefaultConverter()
             converterId = self.data.converter.id.uuidString
-            selectedItem = converterId
-            return
+        }
+        
+        if data.input.isEmpty {
+            if let startingMessage = self.data.converter.startingMessage {
+                data.cleanedInput = startingMessage.enumerated()
+            } else {
+                data.cleanedInput = "Type your text.".enumerated()
+            }
         }
         
         selectedItem = converterId
-        self.data.converter = converter
     }
 }
 
