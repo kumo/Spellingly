@@ -29,6 +29,7 @@ struct ContentView: View {
     @ObservedObject var dataProvider = BookmarkDataProvider.shared
     @ObservedObject var converterDataProvider = ConverterDataProvider.shared
     @AppStorage("converterIdKey") var converterId: String = ""
+    @State private var selectedItem: String = ""
         
     
     // MARK: - UI Elements
@@ -51,15 +52,15 @@ struct ContentView: View {
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             // FIXME: Ensure that the title width is adjusted
-                            Text(data.converter.name).font(.headline)
-                                .onTapGesture {
-                                    print("Navigation title pressed...")
-                                    self.showConvertersView.toggle()
+                            Picker("Converter", selection: $selectedItem) {
+                                ForEach(Array(converterDataProvider.allConverters.enumerated()), id: \.element) { index, item in
+                                    Text(item.name).tag(item.id.uuidString)
                                 }
-                                .sheet(isPresented: $showConvertersView,
-                                       onDismiss: loadConverter) {
-                                    ConvertersView()
-                                }
+                            }
+                            .onChange(of: selectedItem) { tag in print("Converter ID: \(tag)")
+                                converterId = selectedItem
+                                loadConverter()
+                            }
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
