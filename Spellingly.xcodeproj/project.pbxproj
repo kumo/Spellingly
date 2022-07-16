@@ -23,6 +23,7 @@
 		BFD2BB4F28763D77005FCAF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2BB4E28763D77005FCAF2 /* ContentView.swift */; };
 		BFD2BB5128763D7A005FCAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */; };
 		BFD2BB5428763D7A005FCAF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD2BB5328763D7A005FCAF2 /* Preview Assets.xcassets */; };
+		BFEBFD872882D8D90087A244 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEBFD862882D8D90087A244 /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		BFD2BB4E28763D77005FCAF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFD2BB5028763D7A005FCAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFD2BB5328763D7A005FCAF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BFEBFD862882D8D90087A244 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				BF6889B2287F083100904C32 /* Converters.swift */,
 				BF805C0D287B27A900AA6E8F /* SettingsView.swift */,
 				BF632A93287CB0CC00D89D44 /* BookmarksView.swift */,
+				BFEBFD862882D8D90087A244 /* EmptyView.swift */,
 				BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */,
 				BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */,
 				BF805C04287AE30200AA6E8F /* LetterView.swift */,
@@ -192,6 +195,7 @@
 				BF805C0E287B27A900AA6E8F /* SettingsView.swift in Sources */,
 				BFD2BB4F28763D77005FCAF2 /* ContentView.swift in Sources */,
 				BF632A94287CB0CC00D89D44 /* BookmarksView.swift in Sources */,
+				BFEBFD872882D8D90087A244 /* EmptyView.swift in Sources */,
 				BFB92DD028804B1000F1F93C /* BookmarkGrid.swift in Sources */,
 				BF805C0C287B0FBC00AA6E8F /* LetterGrid.swift in Sources */,
 				BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */,

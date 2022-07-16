@@ -13,29 +13,33 @@ struct BookmarksView: View {
     
     // MARK: - UI Elements
     var body: some View {
-        List {
-            ForEach(dataProvider.allBookmarks) { bookmark in
-                if let preferredColumns = bookmark.preferredColumns {
-                    BookmarkGrid(bookmark: bookmark, columns: Array(repeating: .init(.flexible()), count: preferredColumns))
-                } else {
-                    BookmarkGrid(bookmark: bookmark)
+        if dataProvider.allBookmarks.isEmpty {
+            EmptyView()
+        } else {
+            List {
+                ForEach(dataProvider.allBookmarks) { bookmark in
+                    if let preferredColumns = bookmark.preferredColumns {
+                        BookmarkGrid(bookmark: bookmark, columns: Array(repeating: .init(.flexible()), count: preferredColumns))
+                    } else {
+                        BookmarkGrid(bookmark: bookmark)
+                    }
+                    //                Text(bookmark.text)
+                    //                LetterGrid(
+                    //                    letters: bookmark.text.enumerated(),
+                    //                    converter: BuiltInConverter(),
+                    //                    columns: Array(repeating: GridItem.init(.flexible()), count: 5))
+                    
                 }
-//                Text(bookmark.text)
-//                LetterGrid(
-//                    letters: bookmark.text.enumerated(),
-//                    converter: BuiltInConverter(),
-//                    columns: Array(repeating: GridItem.init(.flexible()), count: 5))
-
+                .onDelete(perform: dataProvider.delete)
+                .onMove(perform: dataProvider.move)
             }
-            .onDelete(perform: dataProvider.delete)
-            .onMove(perform: dataProvider.move)
+            .navigationBarTitleDisplayMode(.automatic)
+            .navigationTitle(Text("Bookmarks"))
+            .listStyle(InsetListStyle())
+            .navigationBarItems(
+                trailing: EditButton()
+            )
         }
-        .navigationBarTitleDisplayMode(.automatic)
-        .navigationTitle(Text("Bookmarks"))
-        .listStyle(InsetListStyle())
-        .navigationBarItems(
-            trailing: EditButton()
-        )
     }
 }
 
