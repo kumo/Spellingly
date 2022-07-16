@@ -137,7 +137,7 @@ extension ConverterDataProvider {
 
 extension ConverterDataProvider {
     static func loadDefaultConverter() -> Converter {
-        let url = Bundle.main.url(forResource: "NATO", withExtension: "json")!
+        let url = Bundle.main.url(forResource: "ICAO", withExtension: "json")!
         let data = try! Data(contentsOf: url)
         let decoder = JSONDecoder()
         let jsonData = try! decoder.decode(Converter.self, from: data)

@@ -22,7 +22,7 @@ struct SettingsView: View {
     @AppStorage("spellingPositionKey") var spellingPosition: SpellingPosition = .top
 //    @AppStorage("removeLeadingSpacesKey") var removeLeadingSpace: Bool = false
 //    @AppStorage("removeTrailingLettersKey") var startOnNewLine: Bool = false
-//    @AppStorage("converterNameKey") var converterName: String = "NATO"
+//    @AppStorage("converterNameKey") var converterName: String = "ICAO"
     @State private var converter: Converter = ConverterDataProvider.loadDefaultConverter()
 
     // MARK: - UI Elements

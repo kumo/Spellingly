@@ -11,7 +11,7 @@
 		BF632A94287CB0CC00D89D44 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF632A93287CB0CC00D89D44 /* BookmarksView.swift */; };
 		BF6889B1287F02BB00904C32 /* Italiano.json in Resources */ = {isa = PBXBuildFile; fileRef = BF6889B0287F02BB00904C32 /* Italiano.json */; };
 		BF6889B3287F083100904C32 /* Converters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6889B2287F083100904C32 /* Converters.swift */; };
-		BF7A0066287DF97D005E8B2C /* NATO.json in Resources */ = {isa = PBXBuildFile; fileRef = BF7A0065287DF97D005E8B2C /* NATO.json */; };
+		BF7A0066287DF97D005E8B2C /* ICAO.json in Resources */ = {isa = PBXBuildFile; fileRef = BF7A0065287DF97D005E8B2C /* ICAO.json */; };
 		BF7A0069287E0196005E8B2C /* Converters.json in Resources */ = {isa = PBXBuildFile; fileRef = BF7A0068287E0196005E8B2C /* Converters.json */; };
 		BF7A006B287E0527005E8B2C /* ConvertersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A006A287E0527005E8B2C /* ConvertersView.swift */; };
 		BF7A006D287E1411005E8B2C /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A006C287E1411005E8B2C /* ConverterView.swift */; };
@@ -30,7 +30,7 @@
 		BF632A93287CB0CC00D89D44 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		BF6889B0287F02BB00904C32 /* Italiano.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Italiano.json; sourceTree = "<group>"; };
 		BF6889B2287F083100904C32 /* Converters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converters.swift; sourceTree = "<group>"; };
-		BF7A0065287DF97D005E8B2C /* NATO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NATO.json; sourceTree = "<group>"; };
+		BF7A0065287DF97D005E8B2C /* ICAO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ICAO.json; sourceTree = "<group>"; };
 		BF7A0068287E0196005E8B2C /* Converters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Converters.json; sourceTree = "<group>"; };
 		BF7A006A287E0527005E8B2C /* ConvertersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertersView.swift; sourceTree = "<group>"; };
 		BF7A006C287E1411005E8B2C /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		BF7A0067287DFBB3005E8B2C /* Converters */ = {
 			isa = PBXGroup;
 			children = (
-				BF7A0065287DF97D005E8B2C /* NATO.json */,
+				BF7A0065287DF97D005E8B2C /* ICAO.json */,
 				BF7A0068287E0196005E8B2C /* Converters.json */,
 				BF6889B0287F02BB00904C32 /* Italiano.json */,
 			);
@@ -173,7 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7A0066287DF97D005E8B2C /* NATO.json in Resources */,
+				BF7A0066287DF97D005E8B2C /* ICAO.json in Resources */,
 				BFD2BB5428763D7A005FCAF2 /* Preview Assets.xcassets in Resources */,
 				BF6889B1287F02BB00904C32 /* Italiano.json in Resources */,
 				BF7A0069287E0196005E8B2C /* Converters.json in Resources */,
