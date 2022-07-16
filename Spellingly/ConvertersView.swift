@@ -17,24 +17,39 @@ struct ConvertersView: View {
     
     // MARK: - UI Elements
     var body: some View {
-        List {
-            Section {
+        if dataProvider.allConverters.isEmpty {
+            EmptyView(icon: "textformat.abc.dottedunderline", title: "No converters found. Try resetting them...")
+                .navigationTitle(Text("Converters"))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {dataProvider.restoreConverters()}) {
+                            Text("Reset")
+                        }
+                    }
+                }
+        } else {
+            List {
                 ForEach(Array(dataProvider.allConverters.enumerated()), id: \.element) { index, converter in
                     VStack {
                         Text(converter.name)
                             .font(.title2)
-
+                            .padding()
+                        
+                        Spacer()
+                        
                         LetterGrid(
                             letters: converter.name.enumerated(),
                             converter: ConverterDataProvider.loadConverter(converter)!,
                             columns: Array(repeating: GridItem.init(.flexible()), count: 4))
-
+                        //                        .padding()
+                        
                         if let comment = converter.comment {
                             HStack {
                                 Text(comment)
                                     .font(.caption)
                                     .foregroundColor(Color.gray)
-                              //  Spacer()
+                                
+                                //  Spacer()
                             }
                         }
                     }
@@ -42,20 +57,21 @@ struct ConvertersView: View {
                 .onDelete(perform: dataProvider.delete)
                 .onMove(perform: dataProvider.move)
             }
-        }
-        .listStyle(InsetListStyle())
-        .navigationBarTitleDisplayMode(.automatic)
-        .navigationTitle(Text("Converters"))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {dataProvider.restoreConverters()}) {
-                    Text("Reset")
+            .listStyle(InsetListStyle())
+            .navigationBarTitleDisplayMode(.automatic)
+            .navigationTitle(Text("Converters"))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {dataProvider.restoreConverters()}) {
+                        Text("Reset")
+                    }
                 }
-                            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                                EditButton()
-                            }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+            }
         }
+
     }
 }
 

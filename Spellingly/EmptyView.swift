@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct EmptyView: View {
+
+    // MARK: - Properties
+    var icon: String
+    var title: String
+
+    
+    // MARK: - UI Elements
     var body: some View {
         VStack{
             Spacer()
-            Image(systemName: "bookmark.slash")
+            Image(systemName: icon)
                 .renderingMode(.original)
                 .font(.largeTitle)
                 .padding()
-            Text("Save some spellings and come back here to see them...")
+            Text(title)
                 .font(.title)
                 .foregroundColor(Color.gray)
                 .multilineTextAlignment(.center)
@@ -28,6 +35,6 @@ struct EmptyView: View {
 
 struct EmptyView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        EmptyView(icon: "eye.trianglebadge.exclamationmark.fill", title: "Not much to see here. Perhaps you should look over there..")
     }
 }

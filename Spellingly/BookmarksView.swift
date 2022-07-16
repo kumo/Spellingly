@@ -14,7 +14,7 @@ struct BookmarksView: View {
     // MARK: - UI Elements
     var body: some View {
         if dataProvider.allBookmarks.isEmpty {
-            EmptyView()
+            EmptyView(icon: "bookmark.slash", title: "Save some spellings and come back here to see them...")
         } else {
             List {
                 ForEach(dataProvider.allBookmarks) { bookmark in
