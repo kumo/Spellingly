@@ -10,8 +10,8 @@ import SwiftUI
 struct LetterView: View {
     var letter: String
     var spelling: String
-    @AppStorage("showCapitalsKey") var showCapitals: Bool = false
-    @AppStorage("showCapitalSpellingsKey") var showCapitalSpellings: Bool = false
+    @AppStorage("capitaliseLettersKey") var showCapitals: Bool = false
+    @AppStorage("capitaliseSpellingsKey") var showCapitalSpellings: Bool = false
     @AppStorage("spellingPositionKey") var spellingPosition: SpellingPosition = .top
 
     var body: some View {

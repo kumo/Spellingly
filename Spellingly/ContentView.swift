@@ -30,7 +30,7 @@ struct ContentView: View {
     @ObservedObject var converterDataProvider = ConverterDataProvider.shared
     @AppStorage("converterIdKey") var converterId: String = ""
     @State private var selectedItem: String = ""
-    @AppStorage("showCapitalSpellingsKey") var showCapitalSpellings: Bool = false
+    @AppStorage("capitaliseSpellingsKey") var showCapitalSpellings: Bool = false
     
     // MARK: - UI Elements
     var body: some View {
