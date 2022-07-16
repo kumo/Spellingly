@@ -10,7 +10,8 @@ import SwiftUI
 struct BookmarksView: View {
     // MARK: - Properties
     @ObservedObject var dataProvider = BookmarkDataProvider.shared
-    
+    @AppStorage("capitaliseSpellingsKey") var capitaliseSpellings: Bool = false
+
     // MARK: - UI Elements
     var body: some View {
         if dataProvider.allBookmarks.isEmpty {
@@ -19,7 +20,7 @@ struct BookmarksView: View {
             List {
                 ForEach(dataProvider.allBookmarks) { bookmark in
                     if let preferredColumns = bookmark.preferredColumns {
-                        BookmarkGrid(bookmark: bookmark, columns: Array(repeating: .init(.flexible()), count: preferredColumns))
+                        BookmarkGrid(bookmark: bookmark, columns: Array(repeating: .init(.flexible()), count: (capitaliseSpellings ? preferredColumns - 1 : preferredColumns)))
                     } else {
                         BookmarkGrid(bookmark: bookmark)
                     }
