@@ -30,7 +30,7 @@ struct ContentView: View {
     @ObservedObject var converterDataProvider = ConverterDataProvider.shared
     @AppStorage("converterIdKey") var converterId: String = ""
     @State private var selectedItem: String = ""
-    @AppStorage("capitaliseSpellingsKey") var showCapitalSpellings: Bool = false
+    @AppStorage("capitaliseSpellingsKey") var capitaliseSpellings: Bool = false
     
     // MARK: - UI Elements
     var body: some View {
@@ -38,7 +38,7 @@ struct ContentView: View {
             VStack {
                 if let preferredColumns = data.converter.preferredColumns {
                     // FIXME: Rewrite this
-                    LetterGrid(letters: data.cleanedInput, converter: data.converter, columns: Array(repeating: .init(.flexible()), count: (showCapitalSpellings ? preferredColumns - 1 : preferredColumns)))
+                    LetterGrid(letters: data.cleanedInput, converter: data.converter, columns: Array(repeating: .init(.flexible()), count: (capitaliseSpellings ? preferredColumns - 1 : preferredColumns)))
                 } else {
                     LetterGrid(letters: data.cleanedInput, converter: data.converter)
                 }
