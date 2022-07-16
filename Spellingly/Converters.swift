@@ -111,7 +111,7 @@ class ConverterDataProvider: ObservableObject {
 }
 
 extension ConverterDataProvider {
-    func loadConverter(_ converter: ConverterFile) -> Converter? {
+    static func loadConverter(_ converter: ConverterFile) -> Converter? {
         // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
         if let url = Bundle.main.url(forResource: converter.name, withExtension: "json"),
            let data = try? Data(contentsOf: url) {
@@ -131,7 +131,7 @@ extension ConverterDataProvider {
             return ConverterDataProvider.loadDefaultConverter()
         }
         
-        return loadConverter(converter)
+        return ConverterDataProvider.loadConverter(converter)
     }
 }
 

@@ -13,6 +13,7 @@ struct ConvertersView: View {
     @ObservedObject var dataProvider = ConverterDataProvider.shared
     @AppStorage("converterIdKey") var converterId: String = ""
     @Environment(\.dismiss) var dismiss
+    @State var editMode: EditMode = .inactive
     
     // MARK: - UI Elements
     var body: some View {
@@ -20,47 +21,41 @@ struct ConvertersView: View {
             Section {
                 ForEach(Array(dataProvider.allConverters.enumerated()), id: \.element) { index, converter in
                     VStack {
-                        HStack {
-                            Text(converter.name)
-                            
-                            Spacer()
-//
-//                            Button(action: {}) {
-//                                Image(systemName: "info.circle")
-//                            }
-//                            .foregroundColor(.accentColor)
-                        }
+                        Text(converter.name)
+                            .font(.title2)
+
+                        LetterGrid(
+                            letters: converter.name.enumerated(),
+                            converter: ConverterDataProvider.loadConverter(converter)!,
+                            columns: Array(repeating: GridItem.init(.flexible()), count: 4))
+
                         if let comment = converter.comment {
                             HStack {
                                 Text(comment)
                                     .font(.caption)
-                                Spacer()
+                                    .foregroundColor(Color.gray)
+                              //  Spacer()
                             }
                         }
                     }
                 }
                 .onDelete(perform: dataProvider.delete)
                 .onMove(perform: dataProvider.move)
-            } footer: {
-                HStack {
-                    Spacer()
-                    
-                    Button(action: {
-                        dataProvider.restoreConverters()
-                    }) {
-                        Text("Restore converters")
-                            .font(.footnote)
-                    }
-
-                    Spacer()
-                }
             }
         }
+        .listStyle(InsetListStyle())
         .navigationBarTitleDisplayMode(.automatic)
         .navigationTitle(Text("Converters"))
-        .navigationBarItems(
-            trailing: EditButton()
-        )
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {dataProvider.restoreConverters()}) {
+                    Text("Reset")
+                }
+                            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                                EditButton()
+                            }
+        }
     }
 }
 
