@@ -3,7 +3,7 @@
   "name": "Italiano",
   "author": "Wikipedia - https://it.wikipedia.org/wiki/Alfabeto_telefonico_italiano",
   "language": "it",
-  "startingMessage": "Ciao, come va?",
+  "startingMessage": "Ciao",
   "preferredColumns": 4,
   "spellings": {
     "A" : "Ancona",

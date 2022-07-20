@@ -3,6 +3,7 @@
   "name": "Swedish Armed Forces",
   "author": "Wikipedia",
   "language": "sv",
+  "startingMessage": "Hej",
   "spellings": {
     "A" : "Adam",
     "B" : "Bertil",

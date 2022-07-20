@@ -3,6 +3,7 @@
   "name": "ICAO",
   "author": "Wikipedia",
   "language": "en",
+  "startingMessage": "Hello",
   "spellings": {
     "A" : "Alfa",
     "B" : "Bravo",
