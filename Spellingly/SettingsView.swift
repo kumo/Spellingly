@@ -24,6 +24,7 @@ struct SettingsView: View {
 //    @AppStorage("removeTrailingLettersKey") var startOnNewLine: Bool = false
 //    @AppStorage("converterNameKey") var converterName: String = "ICAO"
     @State private var converter: Converter = ConverterDataProvider.loadDefaultConverter()
+    @Environment(\.dismiss) var dismiss
 
     // MARK: - UI Elements
     var body: some View {
@@ -38,6 +39,12 @@ struct SettingsView: View {
                     }
                 }
                 .navigationTitle("Spellingly")
+                .toolbar {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+
                 
                 Section(header: Text("Options")) {
                     Picker("Spelling position", selection: $spellingPosition ) {
