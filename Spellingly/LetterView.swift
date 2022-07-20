@@ -13,6 +13,7 @@ struct LetterView: View {
     @AppStorage("capitaliseLettersKey") var showCapitals: Bool = false
     @AppStorage("capitaliseSpellingsKey") var showCapitalSpellings: Bool = false
     @AppStorage("spellingPositionKey") var spellingPosition: SpellingPosition = .top
+    @AppStorage("colourSpellingsKey") var colourSpellings: Bool = true
 
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct LetterView: View {
             
             Text(showCapitalSpellings ? spelling.uppercased() : spelling)
                 .font(.caption)
-                .foregroundColor(Color("AccentColor"))
+                .foregroundColor(colourSpellings ? .accentColor : .primary)
                 .allowsTightening(true)
                 .lineLimit(1)
 

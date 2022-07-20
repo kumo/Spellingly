@@ -20,6 +20,7 @@ struct SettingsView: View {
     @AppStorage("capitaliseLettersKey") var capitaliseLetters: Bool = false
     @AppStorage("capitaliseSpellingsKey") var capitaliseSpellings: Bool = false
     @AppStorage("spellingPositionKey") var spellingPosition: SpellingPosition = .top
+    @AppStorage("colourSpellingsKey") var colourSpellings: Bool = true
 //    @AppStorage("removeLeadingSpacesKey") var removeLeadingSpace: Bool = false
 //    @AppStorage("removeTrailingLettersKey") var startOnNewLine: Bool = false
 //    @AppStorage("converterNameKey") var converterName: String = "ICAO"
@@ -54,6 +55,7 @@ struct SettingsView: View {
                     }
                     Toggle("Capitalise letters", isOn: $capitaliseLetters)
                     Toggle("Capitalise spellings", isOn: $capitaliseSpellings)
+                    Toggle("Colour spellings", isOn: $colourSpellings)
 //                    Toggle("Remove leading spaces", isOn: $removeLeadingSpace)
 //                        .disabled(true)
 //                    Toggle("Start words on a new line", isOn: $startOnNewLine)
