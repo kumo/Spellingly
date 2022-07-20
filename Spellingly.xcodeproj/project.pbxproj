@@ -18,6 +18,7 @@
 		BF805C05287AE30200AA6E8F /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C04287AE30200AA6E8F /* LetterView.swift */; };
 		BF805C0C287B0FBC00AA6E8F /* LetterGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */; };
 		BF805C0E287B27A900AA6E8F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF805C0D287B27A900AA6E8F /* SettingsView.swift */; };
+		BF838C482888A1F5003A26F2 /* Bokstavering.json in Resources */ = {isa = PBXBuildFile; fileRef = BF838C472888A1F5003A26F2 /* Bokstavering.json */; };
 		BFB3811528873A67002E6428 /* Purchasings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3811428873A67002E6428 /* Purchasings.swift */; };
 		BFB3811828873E8F002E6428 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = BFB3811728873E8F002E6428 /* RevenueCat */; };
 		BFB92DD028804B1000F1F93C /* BookmarkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */; };
@@ -41,6 +42,7 @@
 		BF805C04287AE30200AA6E8F /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		BF805C0B287B0FBC00AA6E8F /* LetterGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterGrid.swift; sourceTree = "<group>"; };
 		BF805C0D287B27A900AA6E8F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BF838C472888A1F5003A26F2 /* Bokstavering.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Bokstavering.json; sourceTree = "<group>"; };
 		BFB3811428873A67002E6428 /* Purchasings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchasings.swift; sourceTree = "<group>"; };
 		BFB92DCF28804B1000F1F93C /* BookmarkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGrid.swift; sourceTree = "<group>"; };
 		BFD2BB4928763D77005FCAF2 /* Spellingly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spellingly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				BF7A0065287DF97D005E8B2C /* ICAO.json */,
 				BF7A0068287E0196005E8B2C /* Converters.json */,
 				BF6889B0287F02BB00904C32 /* Italiano.json */,
+				BF838C472888A1F5003A26F2 /* Bokstavering.json */,
 			);
 			path = Converters;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				BF7A0066287DF97D005E8B2C /* ICAO.json in Resources */,
 				BFD2BB5428763D7A005FCAF2 /* Preview Assets.xcassets in Resources */,
 				BF6889B1287F02BB00904C32 /* Italiano.json in Resources */,
+				BF838C482888A1F5003A26F2 /* Bokstavering.json in Resources */,
 				BF7A0069287E0196005E8B2C /* Converters.json in Resources */,
 				BFD2BB5128763D7A005FCAF2 /* Assets.xcassets in Resources */,
 			);
