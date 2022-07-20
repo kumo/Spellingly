@@ -54,6 +54,12 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("About"), footer: Text("Version 1.0.0")) {
+                    NavigationLink {
+                        PurchasingsView()
+                    } label: {
+                        Label("Tip Jar", systemImage: "heart.text.square.fill")
+                    }
+
                     Label("Tip Jar", systemImage: "heart.text.square.fill")
                         .disabled(true)
                     NavigationLink {
