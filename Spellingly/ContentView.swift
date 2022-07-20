@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 class LetteryData: ObservableObject {
     @Published var input = "" {
@@ -28,9 +29,12 @@ struct ContentView: View {
     @State var showConvertersView = false
     @ObservedObject var dataProvider = BookmarkDataProvider.shared
     @ObservedObject var converterDataProvider = ConverterDataProvider.shared
-    @AppStorage("converterIdKey") var converterId: String = ""
     @State private var selectedItem: String = ""
+    // MARK: - User Settings
+    @AppStorage("converterIdKey") var converterId: String = ""
     @AppStorage("capitaliseSpellingsKey") var capitaliseSpellings: Bool = false
+    @AppStorage("review.counter") private var reviewCounter = 0
+
     
     // MARK: - UI Elements
     var body: some View {
@@ -105,7 +109,19 @@ struct ContentView: View {
             }
             .padding(10.0)
         }
-        .onAppear(perform: loadConverter)
+        .onAppear {
+            loadConverter()
+            
+            reviewCounter += 1
+            
+            if (reviewCounter > 10) {
+                let scenes = UIApplication.shared.connectedScenes
+                if let windowScene = scenes.first as? UIWindowScene {
+                    reviewCounter = 0
+                    SKStoreReviewController.requestReview(in: windowScene)
+                }
+            }
+        }
     }
     
     private func loadConverter() {
