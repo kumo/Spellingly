@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF2970C42891756B005F00DE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2970C32891756B005F00DE /* StoreKit.framework */; };
 		BF632A92287CACF200D89D44 /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF632A91287CACF200D89D44 /* Bookmarks.swift */; };
 		BF632A94287CB0CC00D89D44 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF632A93287CB0CC00D89D44 /* BookmarksView.swift */; };
 		BF6889B1287F02BB00904C32 /* Italiano.json in Resources */ = {isa = PBXBuildFile; fileRef = BF6889B0287F02BB00904C32 /* Italiano.json */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF2970C32891756B005F00DE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BF632A91287CACF200D89D44 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		BF632A93287CB0CC00D89D44 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		BF6889B0287F02BB00904C32 /* Italiano.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Italiano.json; sourceTree = "<group>"; };
@@ -60,12 +62,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB3811828873E8F002E6428 /* RevenueCat in Frameworks */,
+				BF2970C42891756B005F00DE /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF2970C22891756B005F00DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF2970C32891756B005F00DE /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BF7A0067287DFBB3005E8B2C /* Converters */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +93,7 @@
 			children = (
 				BFD2BB4B28763D77005FCAF2 /* Spellingly */,
 				BFD2BB4A28763D77005FCAF2 /* Products */,
+				BF2970C22891756B005F00DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
