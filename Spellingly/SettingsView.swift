@@ -71,12 +71,6 @@ struct SettingsView: View {
                 
                 Section(header: Text("About"), footer:  Text("Version: \(Bundle.main.appVersion) (\(Bundle.main.appBuild)) ")) {
                     NavigationLink {
-                        PurchasingsView()
-                    } label: {
-                        Label("Tip Jar", systemImage: "heart.text.square.fill")
-                    }
-
-                    NavigationLink {
                         BookmarksView()
                     } label: {
                         Label("Bookmarks", systemImage: "bookmark.circle.fill")
@@ -88,6 +82,13 @@ struct SettingsView: View {
                     }
                     Label("Support", systemImage: "link.circle.fill")
                         .disabled(true)
+                    
+                    NavigationLink {
+                        PurchasingsView()
+                    } label: {
+                        Label("Tip Jar", systemImage: "heart.text.square.fill")
+                    }
+                    
                 }
             }
         }
