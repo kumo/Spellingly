@@ -73,9 +73,9 @@ struct ContentView: View {
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Menu(content: {
-                                Button(action: {}) {
-                                    Label("Share", systemImage: "square.and.arrow.up")
-                                }
+//                                Button(action: {}) {
+//                                    Label("Share", systemImage: "square.and.arrow.up")
+//                                }
                                 
                                 if dataProvider.allBookmarks.firstIndex { $0.text == data.input && $0.converterId == data.converter.id } != nil {
                                     Label("Saved", systemImage: "bookmark.fill")
