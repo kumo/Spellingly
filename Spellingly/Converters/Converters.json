@@ -2,18 +2,18 @@
   {
     "id": "f9f1a704-9545-460d-9dfb-c8b4feec6b84",
     "included": true,
-    "name": "ICAO"
+    "title": "ICAO"
   },
   {
     "id": "2c565428-dc3a-4a71-880d-580660e31146",
     "included": true,
-    "name": "Italiano",
+    "title": "Italiano",
     "comment": "This works better if the spellings aren't shown in capitals"
   },
   {
     "id": "2df8c0f1-a585-476c-a2f1-cbe75a17f866",
-    "name": "Bokstavering",
+    "title": "Bokstavering",
     "included": true,
-    "comment": "Swedish Armed Forces"
+    "subtitle": "Swedish Armed Forces"
   }
 ]

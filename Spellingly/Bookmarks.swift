@@ -75,7 +75,7 @@ class BookmarkDataProvider: ObservableObject {
             spellings.append(BookmarkSpelling(letter: String(character.element), spelling: converter.spellingForLetter(String(character.element))))
         }
 
-        let bookmark = Bookmark(text: text, converterId: converter.id, converterName: converter.name, preferredColumns: converter.preferredColumns, spellings: spellings)
+        let bookmark = Bookmark(text: text, converterId: converter.id, converterName: converter.title, preferredColumns: converter.preferredColumns, spellings: spellings)
 
         allBookmarks.append(bookmark)
         saveBookmarks()

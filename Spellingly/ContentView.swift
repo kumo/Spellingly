@@ -62,7 +62,7 @@ struct ContentView: View {
                             // FIXME: Ensure that the title width is adjusted
                             Picker("Converter", selection: $selectedItem) {
                                 ForEach(Array(converterDataProvider.allConverters.enumerated()), id: \.element) { index, item in
-                                    Text(item.name).tag(item.id.uuidString)
+                                    Text(item.title).tag(item.id.uuidString)
                                 }
                             }
                             .onChange(of: selectedItem) { tag in print("Converter ID: \(tag)")
@@ -89,7 +89,7 @@ struct ContentView: View {
                                 
                                 Picker("Converter", selection: $selectedItem) {
                                     ForEach(Array(converterDataProvider.allConverters.enumerated()), id: \.element) { index, item in
-                                        Text(item.name).tag(item.id.uuidString)
+                                        Text(item.title).tag(item.id.uuidString)
                                     }
                                 }
                             }, label: {Image(systemName: "ellipsis.circle").imageScale(.large)})

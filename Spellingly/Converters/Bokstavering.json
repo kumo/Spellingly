@@ -1,6 +1,7 @@
 {
   "id": "2df8c0f1-a585-476c-a2f1-cbe75a17f866",
-  "name": "Swedish Armed Forces",
+  "title": "Bokstavering",
+  "subtitle": "Swedish Armed Forces",
   "author": "Wikipedia",
   "language": "sv",
   "startingMessage": "Hej",

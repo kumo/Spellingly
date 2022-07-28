@@ -31,7 +31,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Preview - \(converter.name)")) {
+                Section(header: Text("Preview - \(converter.title)")) {
                     if let converter = converter {
                         LetterGrid(
                             letters: "Then to now".enumerated(),

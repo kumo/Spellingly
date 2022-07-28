@@ -11,7 +11,8 @@ struct Converter: Codable, Identifiable {
     
     // MARK: - Properties
     let id: UUID
-    let name: String
+    let title: String
+    let subtitle: String?
     let author: String
     let language: String
     let startingMessage: String?
@@ -32,7 +33,8 @@ struct ConverterFile: Codable, Identifiable, Hashable {
     
     // MARK: - Properties
     let id: UUID
-    let name: String
+    let title: String
+    let subtitle: String?
     let included: Bool
     let comment: String?
 }
@@ -113,7 +115,7 @@ class ConverterDataProvider: ObservableObject {
 extension ConverterDataProvider {
     static func loadConverter(_ converter: ConverterFile) -> Converter? {
         // TODO: Check if the file is in the document directory, and if it isn't, get it from the bundle
-        if let url = Bundle.main.url(forResource: converter.name, withExtension: "json"),
+        if let url = Bundle.main.url(forResource: converter.title, withExtension: "json"),
            let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
             if let jsonData = try? decoder.decode(Converter.self, from: data) {

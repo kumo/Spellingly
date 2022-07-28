@@ -30,7 +30,7 @@ struct ConverterView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            Text(converter?.name ?? "Unknown").font(.headline)
+                            Text(converter?.title ?? "Unknown").font(.headline)
                                 .onTapGesture {
                                     print("Navigation title pressed...")
                                 }

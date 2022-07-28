@@ -31,14 +31,24 @@ struct ConvertersView: View {
             List {
                 ForEach(Array(dataProvider.allConverters.enumerated()), id: \.element) { index, converter in
                     VStack {
-                        Text(converter.name)
-                            .font(.title2)
-                            .padding()
+                        VStack {
+                            Text(converter.title)
+                                .font(.title2)
+                            
+                            if let subtitle = converter.subtitle {
+                                HStack {
+                                    Text(subtitle)
+                                        .font(.caption)
+                                        .foregroundColor(Color.gray)
+                                }
+                            }
+                        }
+                        .padding()
                         
                         Spacer()
                         
                         LetterGrid(
-                            letters: converter.name.enumerated(),
+                            letters: converter.title.enumerated(),
                             converter: ConverterDataProvider.loadConverter(converter)!,
                             columns: Array(repeating: GridItem.init(.flexible()), count: 4))
                         //                        .padding()
