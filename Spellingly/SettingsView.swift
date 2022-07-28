@@ -69,8 +69,6 @@ struct SettingsView: View {
                         Label("Tip Jar", systemImage: "heart.text.square.fill")
                     }
 
-                    Label("Tip Jar", systemImage: "heart.text.square.fill")
-                        .disabled(true)
                     NavigationLink {
                         BookmarksView()
                     } label: {
