@@ -80,8 +80,6 @@ struct SettingsView: View {
                     } label: {
                         Label("Converters", systemImage: "abc")
                     }
-                    Label("Support", systemImage: "link.circle.fill")
-                        .disabled(true)
                     
                     NavigationLink {
                         PurchasingsView()
@@ -89,6 +87,8 @@ struct SettingsView: View {
                         Label("Tip Jar", systemImage: "heart.text.square.fill")
                     }
                     
+//                    Label("Support", systemImage: "link.circle.fill")
+//                        .disabled(true)
                 }
             }
         }
