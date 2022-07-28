@@ -14,6 +14,13 @@ enum SpellingPosition: String, CaseIterable, Identifiable {
     var id: SpellingPosition { self }
 }
 
+extension Bundle {
+    public var appBuild: String { getInfo("CFBundleVersion") }
+    public var appVersion: String { getInfo("CFBundleShortVersionString") }
+    
+    fileprivate func getInfo(_ str: String) -> String { infoDictionary?[str] as? String ?? "⚠️" }
+}
+
 struct SettingsView: View {
 
     // MARK: - Properties
@@ -62,7 +69,7 @@ struct SettingsView: View {
 //                        .disabled(true)
                 }
                 
-                Section(header: Text("About"), footer: Text("Version 1.0.0")) {
+                Section(header: Text("About"), footer:  Text("Version: \(Bundle.main.appVersion) (\(Bundle.main.appBuild)) ")) {
                     NavigationLink {
                         PurchasingsView()
                     } label: {
