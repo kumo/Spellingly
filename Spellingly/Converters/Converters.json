@@ -15,5 +15,15 @@
     "title": "Bokstavering",
     "included": true,
     "subtitle": "Swedish Armed Forces"
+  },
+  {
+    "id": "7d274a64-233e-4d5d-8c81-e84b4b9f0977",
+    "title": "Français",
+    "included": true
+  },
+  {
+    "id": "0e29520e-ef0c-4430-b76b-7aa5869aaea1",
+    "title": "Deutsche",
+    "included": true
   }
 ]
