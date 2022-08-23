@@ -6,7 +6,7 @@ Spellingly provides an easy way of spelling things, by converting a word into in
 
 ## Installation
 
-~~The easiest way is to download it from the App Store.~~
+The easiest way is to download it from the [App Store](https://apps.apple.com/us/app/spellingly/id1634868276).
 
 For now, you can [download](https://github.com/kumo/Spellingly/tags) the source code, compile it with Xcode, and install it on your iOS device.
 
